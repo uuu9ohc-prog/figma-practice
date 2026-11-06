@@ -1,0 +1,40 @@
+/*
+ * LibraryLogo 스타일 (Figma 「경주시립도서관 로고」 194 × 40)
+ * - 색상·크기·글꼴은 tokens.css의 변수만 사용
+ */
+.library-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--size-library-logo-width);
+  max-width: 100%;
+  /* Figma 높이 40px이지만 최소 터치 영역 44px을 지킴 */
+  min-height: var(--size-touch-target);
+  /* base.css 링크 밑줄 제거 (로고이므로) */
+  text-decoration: none;
+}
+
+/* 로고 그림 (Figma 30 × 26) */
+.library-logo__image {
+  width: var(--size-library-logo-image-width);
+  height: var(--size-library-logo-image-height);
+  object-fit: cover;
+}
+
+/* 경주시립도서관 (Figma: Heading/로고, 24px Bold, 가운데 정렬) */
+.library-logo__text {
+  flex: 1;
+  font-family: var(--text-heading-logo-family);
+  font-size: var(--text-heading-logo-size);
+  font-weight: var(--text-heading-logo-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Figma: Property 1=호버 → 연한 회색 배경 (키보드 포커스도 같게) */
+.library-logo:hover,
+.library-logo:focus-visible {
+  background-color: var(--color-stroke-light);
+}

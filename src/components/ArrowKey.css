@@ -1,0 +1,49 @@
+/*
+ * ArrowKey 스타일 (Figma 「방향키」)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 바깥 상자: 회색 배경, 둥근 모서리 ===== */
+.arrow-key {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-arrow-key-bg);
+  border-radius: var(--radius-4); /* Figma 3.657px → 4px로 반올림 */
+}
+
+/* ===== 버튼 (이전·정지·다음): 최소 터치 영역 44px ===== */
+.arrow-key__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-touch-target);
+  height: var(--size-touch-target);
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-4);
+  cursor: pointer;
+}
+
+/* Figma 방향키 「데스크탑」 상태: 아이콘 20px
+   (「모바일」 상태(약 13px)는 터치 영역 44px을 지키려고 쓰지 않음 - 사용자와 정함) */
+.arrow-key__icon {
+  width: var(--size-icon-20);
+  height: var(--size-icon-20);
+}
+
+/* 오른쪽 화살표: 왼쪽 화살표 이미지를 좌우로 뒤집음 */
+.arrow-key__icon--flip {
+  transform: scaleX(-1);
+}
+
+/* ===== 1/5 숫자 =====
+   Figma 「데스크탑」은 NanumSquare Neo Bold 20px이지만, 프로젝트 글꼴(PretendardGOV)로 맞춤 */
+.arrow-key__count {
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-700);
+  line-height: var(--line-height-auto);
+  color: var(--color-white-900);
+  text-align: center;
+  white-space: nowrap;
+}

@@ -1,0 +1,28 @@
+/*
+ * MaterialSearchLink 스타일 (Figma 「자료검색」 603-1662, 105 × 44)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 기본 (Figma: Text/login 17px Regular, 회색, 밑줄 없음) ===== */
+.material-search-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--size-touch-target);
+  padding: var(--spacing-8);
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-primary-text);
+  white-space: nowrap;
+  /* base.css 링크 밑줄 제거 (Figma 기본 상태는 밑줄 없음) */
+  text-decoration: none;
+}
+
+/* ===== 호버 (Figma: 진한 파랑 #133898 + 밑줄) - 키보드 포커스도 같게 ===== */
+.material-search-link:hover,
+.material-search-link:focus-visible {
+  color: var(--color-brand-primary);
+  text-decoration: underline;
+}

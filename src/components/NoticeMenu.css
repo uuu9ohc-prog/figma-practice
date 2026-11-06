@@ -1,0 +1,48 @@
+/*
+ * NoticeMenu 스타일 (Figma 「공지메뉴」)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 버튼 (Figma 55 × 44) ===== */
+.notice-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* 최소 터치 영역 44px 높이 확보, 너비는 글자에 맞춰 늘어남 */
+  min-width: var(--size-touch-target);
+  min-height: var(--size-touch-target);
+  padding-inline: var(--spacing-4);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* ===== 점: 기본 상태에서는 투명 (자리만 차지해서 호버 때 글자가 움직이지 않게) ===== */
+.notice-menu__dot {
+  width: var(--size-dot-4);
+  height: var(--size-dot-4);
+  border-radius: var(--radius-4);
+  background-color: transparent;
+}
+
+/* ===== 글자 (Figma: Text/banner, 15px Regular, 회색) ===== */
+.notice-menu__label {
+  font-family: var(--text-banner-family);
+  font-size: var(--text-banner-size);
+  font-weight: var(--text-banner-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+
+/* ===== 호버 상태 (마우스를 올렸을 때 + 키보드 포커스) ===== */
+.notice-menu:hover .notice-menu__dot,
+.notice-menu:focus-visible .notice-menu__dot {
+  background-color: var(--color-button-unavailable);
+}
+
+.notice-menu:hover .notice-menu__label,
+.notice-menu:focus-visible .notice-menu__label {
+  color: var(--color-button-unavailable);
+}

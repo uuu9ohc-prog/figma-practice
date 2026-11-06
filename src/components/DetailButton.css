@@ -1,0 +1,71 @@
+/*
+ * DetailButton 스타일 (Figma 「전체도서관」/상세보기 125 × 44)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+.detail-button {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  min-width: var(--size-action-button-width);
+  min-height: var(--size-touch-target);
+  padding-left: var(--spacing-16);
+  background-color: var(--color-white-900);
+  border: 1px solid var(--color-stroke-light);
+  border-radius: var(--radius-4);
+  /* base.css의 링크 밑줄 제거 (버튼 모양이므로) */
+  text-decoration: none;
+}
+
+/* 상세보기 (Figma: Text/login 17px Regular) */
+.detail-button__label {
+  flex: 1;
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-primary-text);
+  white-space: nowrap;
+}
+
+/* 화살표 칸 (Figma 44 × 44 안에 아이콘 24 × 24) */
+.detail-button__icon-box {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-touch-target);
+  height: var(--size-touch-target);
+}
+
+/* 원본은 ◀ 모양이라 Figma와 같이 돌려서 ▶로 보이게 함 */
+.detail-button__icon {
+  width: var(--size-icon-24);
+  height: var(--size-icon-24);
+  transform: rotate(180deg);
+}
+
+/* 기본 상태에서는 회색 화살표만 */
+.detail-button__icon--hover {
+  display: none;
+}
+
+/* ===== 호버 상태 (마우스를 올렸을 때 + 키보드 포커스) ===== */
+.detail-button:hover,
+.detail-button:focus-visible {
+  background-color: var(--color-text-primary-text);
+}
+
+.detail-button:hover .detail-button__label,
+.detail-button:focus-visible .detail-button__label {
+  color: var(--color-white-900);
+}
+
+.detail-button:hover .detail-button__icon--default,
+.detail-button:focus-visible .detail-button__icon--default {
+  display: none;
+}
+
+.detail-button:hover .detail-button__icon--hover,
+.detail-button:focus-visible .detail-button__icon--hover {
+  display: block;
+}

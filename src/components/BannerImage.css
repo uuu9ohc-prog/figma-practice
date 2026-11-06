@@ -1,0 +1,11 @@
+/*
+ * BannerImage 스타일 (Figma 배너 이미지 348 × 227)
+ */
+.banner-image {
+  /* 부모 너비에 맞춰 늘어나고 줄어듦 (고정 px 대신 %) */
+  width: 100%;
+  /* Figma 비율 348:227을 유지 → 높이를 고정하지 않아도 모양이 같음 */
+  aspect-ratio: 348 / 227;
+  object-fit: cover;
+  border-radius: var(--radius-4);
+}

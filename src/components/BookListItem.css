@@ -1,0 +1,81 @@
+/*
+ * BookListItem 스타일 (Figma 「책소개 세트」 86-1741)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 전체: 표지 | 정보 가로 배치, 사이 19px ===== */
+.book-list-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-19);
+  width: 100%;
+}
+
+/* ===== 책표지: 연한 테두리 + 배지를 겹쳐 놓을 기준 상자 ===== */
+.book-list-item__cover {
+  position: relative;
+  flex-shrink: 0;
+  width: var(--size-book-thumb-width);
+  background-color: var(--color-white-900);
+  border: 1px solid var(--color-stroke-light);
+}
+
+/* 표지 이미지 (Figma 110 × 160 비율 유지) */
+.book-list-item__image {
+  width: 100%;
+  aspect-ratio: 110 / 160;
+  object-fit: cover;
+}
+
+/* 대출가능여부 배지: 표지 오른쪽 위에 겹침 */
+.book-list-item__badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* ===== 도서소개 묶음: 세로, 사이 8px ===== */
+.book-list-item__info {
+  display: flex;
+  flex: 1;
+  /* min-width: 0 → 긴 글자가 있어도 화면 밖으로 넘치지 않음 */
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  overflow-wrap: break-word;
+}
+
+/* 책 제목 (Figma: Heading/Sub title, 20px Bold, 검정) */
+.book-list-item__title {
+  font-family: var(--text-heading-sub-title-family);
+  font-size: var(--text-heading-sub-title-size);
+  font-weight: var(--text-heading-sub-title-weight);
+  line-height: var(--line-height-129);
+  color: var(--color-text-title);
+}
+
+/* 지은이·출판·소장·예약 (Figma: Text/banner 15px Regular, 사이 2px) */
+.book-list-item__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  font-family: var(--text-banner-family);
+  font-size: var(--text-banner-size);
+  font-weight: var(--text-banner-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-secondary-text);
+}
+
+/* 소장 위치만 더 진한 색 (Figma: text/bolder) */
+.book-list-item__location {
+  color: var(--color-text-bolder);
+}
+
+/* 대출 상태 (Figma: Text/banner 15px Regular, text/bolder) */
+.book-list-item__status {
+  font-family: var(--text-banner-family);
+  font-size: var(--text-banner-size);
+  font-weight: var(--text-banner-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder);
+}

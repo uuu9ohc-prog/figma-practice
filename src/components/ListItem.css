@@ -1,0 +1,31 @@
+/*
+ * ListItem 스타일 (Figma 「목록」 150 × 44)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+.list-item {
+  display: flex;
+  align-items: center;
+  /* Figma 너비 150px → 좁은 화면에서는 줄어들 수 있게 max-width */
+  width: 100%;
+  max-width: var(--size-list-item-width);
+  min-height: var(--size-touch-target);
+  padding: var(--spacing-8);
+  /* Figma: Heading/Sub text (17px Bold) */
+  font-family: var(--text-heading-sub-family);
+  font-size: var(--text-heading-sub-size);
+  font-weight: var(--text-heading-sub-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder);
+  white-space: nowrap;
+  /* base.css 링크 밑줄 제거 (호버 때 아래 선으로 표시) */
+  text-decoration: none;
+  /* 기본 상태에도 투명한 선을 두어, 호버 때 높이가 흔들리지 않게 함 */
+  border-bottom: var(--size-underline-2) solid transparent;
+}
+
+/* Figma: 호버 → 흰 배경 + 아래 진한 파랑 선 (키보드 포커스도 같게) */
+.list-item:hover,
+.list-item:focus-visible {
+  background-color: var(--color-white-900);
+  border-bottom-color: var(--color-brand-primary);
+}

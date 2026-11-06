@@ -1,0 +1,48 @@
+/*
+ * NoticeSet 스타일 (Figma 「세트」)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 한 줄 전체 (태그 · 제목 · 기간, 사이 9px) ===== */
+.notice-set {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-9);
+  width: 100%;
+  /* 줄 전체가 링크이므로 터치 영역 44px 확보 */
+  min-height: var(--size-touch-target);
+  /* base.css 링크 밑줄 제거 → 대신 호버 때 제목에만 밑줄 */
+  text-decoration: none;
+}
+
+/* ===== 제목 (Figma: Text/login, 17px Regular) ===== */
+.notice-set__title {
+  /* 남은 공간을 차지하고, 넘치면 … 으로 줄임 (min-width: 0 이 있어야 줄어듦) */
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder); /* Figma: gray/900 #222 */
+}
+
+/* 링크임을 알 수 있게 호버·포커스 때 제목에 밑줄 */
+.notice-set:hover .notice-set__title,
+.notice-set:focus-visible .notice-set__title {
+  text-decoration: underline;
+}
+
+/* ===== 기간 (Figma: Text/banner, 15px Regular, 회색) ===== */
+.notice-set__period {
+  flex-shrink: 0;
+  font-family: var(--text-banner-family);
+  font-size: var(--text-banner-size);
+  font-weight: var(--text-banner-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}

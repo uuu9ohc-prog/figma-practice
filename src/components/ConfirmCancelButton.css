@@ -1,0 +1,35 @@
+/*
+ * ConfirmCancelButton 스타일 (Figma 「버튼」 확인/취소 80 × 37)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+.confirm-cancel-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-confirm-cancel-button-width);
+  /* Figma 높이 37px이지만 최소 터치 영역 44px을 지킴 */
+  min-height: var(--size-touch-target);
+  padding: var(--spacing-4) var(--spacing-8);
+  /* Figma: Pretendard GOV Medium 16px
+     → 프로젝트에는 Regular(400)·Bold(700) 글꼴 파일만 있어서, 브라우저가 Medium 대신 쓰는 Regular로 지정 */
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-150);
+  white-space: nowrap;
+  border: none;
+  border-radius: var(--radius-4);
+  cursor: pointer;
+}
+
+/* 확인 (Figma: #222 배경 + 흰 글자) */
+.confirm-cancel-button--confirm {
+  color: var(--color-white-900);
+  background-color: var(--color-text-bolder);
+}
+
+/* 취소 (Figma: 흰 배경 + #222 글자) */
+.confirm-cancel-button--cancel {
+  color: var(--color-text-bolder);
+  background-color: var(--color-white-900);
+}

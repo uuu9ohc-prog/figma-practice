@@ -1,0 +1,19 @@
+/*
+ * MaterialBundle 스타일 (Figma 「자료묶음」 115 × 26)
+ * - 색상·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* 값 (Figma: Text/login, 17px Regular, 검정) */
+.material-bundle {
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-title);
+}
+
+/* 항목 이름 (Figma: Heading/Sub text, 17px Bold) */
+.material-bundle__label {
+  font-family: var(--text-heading-sub-family);
+  font-weight: var(--text-heading-sub-weight);
+}

@@ -1,0 +1,72 @@
+/*
+ * LogoCollection 스타일 (Figma 「로고모음」 로고01 ~ 04, 350 × 39)
+ * - 색상·간격·크기는 tokens.css의 변수만 사용
+ */
+
+/* ===== 띠 전체: 흰 배경, 둥근 모서리, 로고 영역 + 정지 버튼 ===== */
+.logo-collection {
+  display: flex;
+  align-items: center;
+  /* Figma 너비 350px → 부모에 맞춰 늘어나고 줄어들게 % */
+  width: 100%;
+  /* Figma 높이는 약 39px이지만, 정지 버튼의 최소 터치 영역(44px)을 지키려고 44px */
+  min-height: var(--size-touch-target);
+  background-color: var(--color-white-900);
+  border-radius: var(--radius-4); /* Figma 3.111px → 4px로 반올림 */
+}
+
+/* ===== 보이는 창: 묶음 하나만 보이고 나머지는 잘라서 숨김 ===== */
+.logo-collection__viewport {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* ===== 띠(트랙): 묶음들을 가로로 이어 붙임, transform으로 이동 ===== */
+.logo-collection__track {
+  display: flex;
+}
+
+/* 부드럽게 밀기 */
+.logo-collection__track--animated {
+  transition: transform var(--duration-slide) ease-in-out;
+}
+
+/* 화면 움직임 줄이기를 켠 사용자에게는 애니메이션 없이 바로 바뀜 (접근성) */
+@media (prefers-reduced-motion: reduce) {
+  .logo-collection__track--animated {
+    transition: none;
+  }
+}
+
+/* ===== 정지/재생 버튼 (Figma에 없어서 추가, 최소 터치 영역 44px) ===== */
+.logo-collection__button {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-touch-target);
+  height: var(--size-touch-target);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* 아이콘: 흰색 SVG 파일의 "모양"만 가져와(mask) 토큰 색으로 칠함
+   → 흰 배경에서도 보이고, 아이콘 파일은 배너와 같은 것을 그대로 씀 */
+.logo-collection__icon {
+  width: var(--size-icon-18);
+  height: var(--size-icon-18);
+  background-color: var(--color-text-primary-text);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.logo-collection__icon--pause {
+  mask-image: url('../assets/icons/pause.svg');
+}
+
+.logo-collection__icon--play {
+  mask-image: url('../assets/icons/play.svg');
+}

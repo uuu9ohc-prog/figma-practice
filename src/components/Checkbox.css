@@ -1,0 +1,29 @@
+/*
+ * Checkbox 스타일 (Figma 「체크박스」 111 × 44)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+.checkbox {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  padding: 0 var(--spacing-8) 0 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* 아이콘 44 × 44 (최소 터치 영역과 같음) */
+.checkbox__icon {
+  width: var(--size-touch-target);
+  height: var(--size-touch-target);
+}
+
+/* 관심담기 (Figma: Text/login 17px Regular, 색 Black) */
+.checkbox__label {
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-black);
+  white-space: nowrap;
+}

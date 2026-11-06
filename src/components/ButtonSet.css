@@ -1,0 +1,19 @@
+/*
+ * ButtonSet 스타일 (Figma 「버튼세트」 389 × 44)
+ * - 간격은 tokens.css의 변수만 사용
+ */
+.button-set {
+  display: flex;
+  flex-wrap: wrap; /* 화면이 좁으면 다음 줄로 */
+  align-items: center;
+  justify-content: space-between;
+  /* Figma 버튼 사이 간격 14px (389 - 111 - 125 - 125 = 28 ÷ 2) */
+  gap: var(--spacing-14);
+  width: 100%;
+}
+
+/* 버튼세트 안의 「예약확인」: 도서예약신청 버튼과 같은 너비로 맞춰 줄 배치가 흔들리지 않게 */
+.button-set__reserve-set {
+  width: auto;
+  min-width: var(--size-action-button-width);
+}

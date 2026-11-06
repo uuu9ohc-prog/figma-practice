@@ -1,0 +1,29 @@
+/*
+ * LoanBadge 스타일 (Figma 「대출가능여부」)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+.loan-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-loan-badge-width);
+  padding: var(--spacing-8);
+  border-radius: var(--radius-4);
+  /* Figma: Text/banner (15px Regular, 흰색) */
+  font-family: var(--text-banner-family);
+  font-size: var(--text-banner-size);
+  font-weight: var(--text-banner-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-white-900);
+  white-space: nowrap;
+}
+
+/* 대출가능: 초록 (Figma: 버튼/대출가능) */
+.loan-badge--available {
+  background-color: var(--color-button-available);
+}
+
+/* 대출불가: 빨강 (Figma: 버튼/대출불가) */
+.loan-badge--unavailable {
+  background-color: var(--color-button-unavailable);
+}

@@ -1,0 +1,54 @@
+/*
+ * NoticeTag 스타일 (Figma 공지사항01 ~ 07)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 공통 모양: 흰 배경 + 1px 테두리 ===== */
+.notice-tag {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  /* Figma 너비 63px. 꿈마루처럼 글자가 길면 늘어나도록 min-width 사용 */
+  min-width: var(--size-notice-tag-width);
+  padding: var(--spacing-2) var(--spacing-8);
+  /* Figma: Text/login (17px Regular) */
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  white-space: nowrap;
+  background-color: var(--color-white-900);
+  border: 1px solid currentColor; /* 테두리를 글자색과 같게 */
+}
+
+/* ===== 도서관별 색 ===== */
+.notice-tag--01 {
+  color: var(--color-notice-sirip);
+}
+
+.notice-tag--02 {
+  color: var(--color-notice-songhwa);
+}
+
+.notice-tag--03 {
+  color: var(--color-notice-jungang);
+}
+
+.notice-tag--04 {
+  color: var(--color-notice-chilpyeong);
+}
+
+.notice-tag--05 {
+  color: var(--color-notice-gampo);
+}
+
+.notice-tag--06 {
+  color: var(--color-notice-danseok);
+}
+
+/* 꿈마루: Figma에서 테두리와 글자 색이 달라서 따로 지정 */
+.notice-tag--07 {
+  color: var(--color-notice-kkummaru-text);
+  border-color: var(--color-notice-kkummaru-border);
+}

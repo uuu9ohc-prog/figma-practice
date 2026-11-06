@@ -1,0 +1,66 @@
+/*
+ * reset.css: 브라우저마다 다른 기본 스타일(여백, 박스 크기 계산 등)을 초기화
+ * - html 기본 글자 크기(16px)는 바꾸지 않음 (1rem = 16px 유지)
+ * - 포커스 표시(outline)는 지우지 않음 (키보드 접근성)
+ * - 디자인 값(색상, 글꼴 등)은 넣지 않음 → tokens.css에서 관리
+ */
+
+/* 패딩·테두리를 너비 안에 포함해서 계산 → 가로 넘침 방지 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 브라우저 기본 바깥 여백 제거 */
+* {
+  margin: 0;
+}
+
+/* 모바일 가로 회전 시 글자가 저절로 커지는 현상 방지 */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* 화면 높이만큼은 최소로 채움 */
+body {
+  min-height: 100vh;
+}
+
+/* 이미지·영상이 화면 밖으로 넘치지 않게 함 */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 입력창·버튼도 주변 글꼴을 그대로 따르게 함 (브라우저 기본 글꼴 사용 방지) */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* 긴 단어(URL 등)가 화면 밖으로 넘치지 않게 줄바꿈 */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* role="list"를 붙인 목록만 점·들여쓰기 제거 (스크린리더가 목록으로 인식하도록 유지) */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  padding: 0;
+}

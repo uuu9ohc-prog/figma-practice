@@ -1,0 +1,71 @@
+/*
+ * MaterialSearchDropdown 스타일 (Figma 「자료검색」 603-1667, 137 × 44)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 버튼 전체 (Figma: 기본) ===== */
+.material-search-dropdown {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  min-height: var(--size-touch-target);
+  padding: var(--spacing-8);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* 글자 (Figma: Text/login 17px Regular, 회색) */
+.material-search-dropdown__text {
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-primary-text);
+  white-space: nowrap;
+  /* 기본 상태에도 투명한 선을 두어, 호버 때 높이가 흔들리지 않게 함 (Figma 「선」 2px) */
+  border-bottom: var(--size-underline-2) solid transparent;
+}
+
+/* ▼ 아이콘 칸 (Figma 24 × 24) */
+.material-search-dropdown__icon-box {
+  display: flex;
+  flex-shrink: 0;
+}
+
+/* 원본은 ◀ 모양이라 Figma와 똑같이 돌려서 ▼로 보이게 함 */
+.material-search-dropdown__icon {
+  width: var(--size-icon-24);
+  height: var(--size-icon-24);
+  transform: rotate(-90deg) scaleY(-1);
+}
+
+/* 기본 상태에서는 파랑 화살표를 숨김 */
+.material-search-dropdown__icon--active {
+  display: none;
+}
+
+/* ===== 호버(마우스·키보드 포커스) + 클릭(펼쳐진 상태) 공통 ===== */
+.material-search-dropdown:hover .material-search-dropdown__text,
+.material-search-dropdown:focus-visible .material-search-dropdown__text,
+.material-search-dropdown[aria-expanded='true'] .material-search-dropdown__text {
+  color: var(--color-brand-primary); /* Figma: Primary */
+  border-bottom-color: var(--color-brand-primary);
+}
+
+.material-search-dropdown:hover .material-search-dropdown__icon--default,
+.material-search-dropdown:focus-visible .material-search-dropdown__icon--default,
+.material-search-dropdown[aria-expanded='true'] .material-search-dropdown__icon--default {
+  display: none;
+}
+
+.material-search-dropdown:hover .material-search-dropdown__icon--active,
+.material-search-dropdown:focus-visible .material-search-dropdown__icon--active,
+.material-search-dropdown[aria-expanded='true'] .material-search-dropdown__icon--active {
+  display: block;
+}
+
+/* ===== 클릭(펼쳐진 상태)만: 연한 회색 배경 (대비 5.36:1, 기준 통과) ===== */
+.material-search-dropdown[aria-expanded='true'] {
+  background-color: var(--color-stroke-light);
+}

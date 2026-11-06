@@ -1,0 +1,61 @@
+/*
+ * HeaderMenu 스타일 (Figma 「헤더 메뉴」 82 × 37)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 메뉴 전체: 점 / 글자 / 밑줄을 세로로 ===== */
+.header-menu {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  min-width: var(--size-header-menu-width);
+  /* Figma 높이 37px이지만 최소 터치 영역 44px을 지킴 */
+  min-height: var(--size-touch-target);
+  /* base.css 링크 밑줄 제거 (밑줄은 아래 .header-menu__line으로 따로 그림) */
+  text-decoration: none;
+}
+
+/* 점 (Figma 4 × 4) - 기본은 흰색 */
+.header-menu__dot {
+  width: var(--size-dot-4);
+  height: var(--size-dot-4);
+  border-radius: var(--radius-4);
+  background-color: var(--color-white-900);
+}
+
+/* 메뉴 이름 (Figma: Heading/Sub title, 20px Bold, 진한 글자) */
+.header-menu__label {
+  font-family: var(--text-heading-sub-title-family);
+  font-size: var(--text-heading-sub-title-size);
+  font-weight: var(--text-heading-sub-title-weight);
+  line-height: var(--line-height-129);
+  color: var(--color-text-bolder);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 밑줄 (Figma 82 × 2, 끝 둥글게) - 기본은 흰색 */
+.header-menu__line {
+  width: 100%;
+  height: var(--size-header-menu-line);
+  border-radius: var(--radius-6);
+  background-color: var(--color-white-900);
+}
+
+/* ===== 호버 상태 (마우스 + 키보드 포커스 + 지금 보고 있는 메뉴) ===== */
+.header-menu:hover .header-menu__dot,
+.header-menu:focus-visible .header-menu__dot,
+.header-menu[aria-current='page'] .header-menu__dot,
+.header-menu:hover .header-menu__line,
+.header-menu:focus-visible .header-menu__line,
+.header-menu[aria-current='page'] .header-menu__line {
+  background-color: var(--color-brand-primary); /* Figma: Primary */
+}
+
+.header-menu:hover .header-menu__label,
+.header-menu:focus-visible .header-menu__label,
+.header-menu[aria-current='page'] .header-menu__label {
+  color: var(--color-brand-sub); /* Figma: Sub */
+}

@@ -1,0 +1,48 @@
+/*
+ * NoticeItem 스타일 (Figma 「도서관 이름」 603-1400)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 한 줄 전체: 흰 배경, 둥근 모서리 (사이 8px) ===== */
+.notice-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  width: 100%;
+  min-height: var(--size-touch-target);
+  padding: var(--spacing-8) var(--spacing-16);
+  background-color: var(--color-white-900);
+  border-radius: var(--radius-25);
+  /* base.css 링크 밑줄 제거 → 대신 호버 때 제목에만 밑줄 */
+  text-decoration: none;
+}
+
+/* ===== 날짜 (Figma: Text/banner, 15px Regular, 회색) ===== */
+.notice-item__date {
+  flex-shrink: 0;
+  font-family: var(--text-banner-family);
+  font-size: var(--text-banner-size);
+  font-weight: var(--text-banner-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+
+/* ===== 제목 (Figma: 17px Regular, 넘치면 …) ===== */
+.notice-item__title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder); /* Figma: gray/900 #222 */
+}
+
+.notice-item:hover .notice-item__title,
+.notice-item:focus-visible .notice-item__title {
+  text-decoration: underline;
+}

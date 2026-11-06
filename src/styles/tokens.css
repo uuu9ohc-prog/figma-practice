@@ -1,0 +1,359 @@
+/*
+ * 디자인 토큰 (Figma에서 가져온 값)
+ * 출처: Figma "경주시립도서관-분석" (fileKey aUDzhMDR88ndEHgk5QFO5S)
+ *       로컬 변수(Primaries, Color 컬렉션) + 로컬 텍스트 스타일
+ *
+ * 규칙
+ * - 이름은 Figma 이름을 영문 kebab-case로 바꿔서 사용
+ * - 값은 Figma 값을 그대로 사용 (반올림·임의 변경 없음)
+ * - 글자 크기는 프로젝트 규칙(1rem = 16px)에 따라 Figma px ÷ 16 으로 변환 (나누어 떨어지는 값만 있음)
+ * - 간격 / 그림자: Figma에 변수·스타일이 없어서, 모바일 화면(노드 10068-5633)에
+ *   직접 쓰인 값 중 정수 간격과 그림자만 넣음 (컴포넌트 크기 조절로 생긴 소수점 값은 제외)
+ * - 라운드: 반복해서 쓰인 정수 값이 없어서 넣지 않음
+ */
+
+:root {
+  /* ===== 컬러: 기본 팔레트 (Figma 컬렉션 "Primaries") ===== */
+  --color-gray-100: #ededed; /* Figma 이름은 Orange/100이지만 값이 회색이라 gray로 바꿈 */
+  --color-gray-300: #333333;
+  --color-gray-500: #555555;
+  --color-gray-600: #666666;
+  --color-gray-900: #000000;
+  --color-blue-200: #f2f5fb;
+  --color-blue-400: #0092ff;
+  --color-blue-700: #6a82b8;
+  --color-blue-900: #13398f;
+  --color-orange-400: #ff5a00;
+  --color-white-900: #ffffff;
+
+  /* ===== 컬러: 용도별 (Figma 컬렉션 "Color", 기본 팔레트를 참조) ===== */
+  --color-primary: var(--color-blue-900);
+  --color-text-primary: var(--color-gray-300);
+  --color-text-primary-hover: var(--color-white-900);
+  --color-text-category: var(--color-gray-600);
+  --color-text-title: var(--color-gray-900);
+  --color-card: var(--color-blue-200);
+  --color-list: var(--color-gray-100); /* Figma: 리스트 */
+  --color-status-open: var(--color-orange-400); /* Figma: 접수중 */
+  --color-status-upcoming: var(--color-blue-400); /* Figma: 접수예정 */
+  --color-status-closed: var(--color-gray-500); /* Figma: 접수마감 */
+
+  /* ===== 폰트 패밀리 ===== */
+  /* Figma는 NanumSquare Neo / NanumSquare Neo OTF / Inter를 쓰지만,
+     프로젝트에서는 src/fonts에 있는 PretendardGOV만 사용하기로 함 (글꼴 등록은 base.css의 @font-face) */
+  --font-family-pretendard-gov: "PretendardGOV", sans-serif;
+
+  /* ===== 폰트 크기 (Figma 변수 text/size/*) ===== */
+  --font-size-14: 0.875rem; /* 14px (Figma 변수 없음, PC 화면 Desktop - 1에 16회 직접 사용) */
+  --font-size-16: 1rem; /* 16px */
+  --font-size-18: 1.125rem; /* 18px */
+  --font-size-20: 1.25rem; /* 20px */
+  --font-size-22: 1.375rem; /* 22px */
+  --font-size-26: 1.625rem; /* 26px */
+  --font-size-32: 2rem; /* 32px */
+
+  /* ===== 폰트 굵기 (Figma 변수 text/wieght/* → 오타를 weight로 바로잡음) ===== */
+  --font-weight-400: 400;
+  --font-weight-700: 700;
+  --font-weight-800: 800;
+  --font-weight-900: 900;
+
+  /* ===== 행간 ===== */
+  /* Figma 텍스트 스타일 15개의 행간이 모두 "Auto"(CSS의 normal)라서 하나만 둠 */
+  --line-height-auto: normal;
+
+  /* ===== 간격 (Figma 변수 없음, 화면에 직접 쓰인 auto layout 간격·패딩 값) ===== */
+  --spacing-8: 0.5rem; /* 8px, 13회 사용 */
+  --spacing-9: 0.5625rem; /* 9px, 2회 사용 */
+  --spacing-12: 0.75rem; /* 12px, 2회 사용 */
+  --spacing-16: 1rem; /* 16px, 5회 사용 */
+  --spacing-20: 1.25rem; /* 20px, 2회 사용 */
+  --spacing-32: 2rem; /* 32px, 2회 사용 */
+
+  /* ===== 그림자 (Figma 이펙트 스타일 없음, 화면에 직접 쓰인 값) ===== */
+  /* Drop shadow: X 0, Y 2.485518217086792, Blur 19.884145736694336, Spread 0, #13398f 25% */
+  --shadow-primary: 0 2.485518217086792px 19.884145736694336px 0 rgba(19, 57, 143, 0.25);
+
+  /* ===== 텍스트 스타일 (Figma 로컬 텍스트 스타일) ===== */
+  /* 스타일마다 패밀리·크기·굵기만 정의. 행간은 모두 위의 --line-height-auto를 사용 */
+  /* 크기는 모바일 퍼스트: 여기 값은 모바일용(PC 크기보다 한 단계 작게, 최소 16px),
+     PC 크기(Figma 값)는 파일 맨 아래 @media (min-width: 1024px)에서 덮어씀 */
+
+  /* 상단 메뉴/메뉴바 */
+  --text-top-menu-menubar-family: var(--font-family-pretendard-gov);
+  --text-top-menu-menubar-size: var(--font-size-16); /* PC 18px */
+  --text-top-menu-menubar-weight: var(--font-weight-800);
+
+  /* 상단 메뉴/로그인 */
+  --text-top-menu-login-family: var(--font-family-pretendard-gov);
+  --text-top-menu-login-size: var(--font-size-18); /* PC 20px */
+  --text-top-menu-login-weight: var(--font-weight-400);
+
+  /* main/안내문구 */
+  --text-main-notice-family: var(--font-family-pretendard-gov);
+  --text-main-notice-size: var(--font-size-20); /* 모바일 Figma 시안도 20px → 줄이지 않음 */
+  --text-main-notice-weight: var(--font-weight-800);
+
+  /* main/title */
+  --text-main-title-family: var(--font-family-pretendard-gov);
+  --text-main-title-size: var(--font-size-26); /* PC 32px */
+  --text-main-title-weight: var(--font-weight-900);
+
+  /* main/category */
+  --text-main-category-family: var(--font-family-pretendard-gov);
+  --text-main-category-size: var(--font-size-18); /* PC 20px */
+  --text-main-category-weight: var(--font-weight-700);
+
+  /* card/brand */
+  --text-card-brand-family: var(--font-family-pretendard-gov);
+  --text-card-brand-size: var(--font-size-16); /* 최소 16px 유지 */
+  --text-card-brand-weight: var(--font-weight-700);
+
+  /* card/title */
+  --text-card-title-family: var(--font-family-pretendard-gov);
+  --text-card-title-size: var(--font-size-20); /* PC 22px */
+  --text-card-title-weight: var(--font-weight-700);
+
+  /* card/text */
+  --text-card-text-family: var(--font-family-pretendard-gov);
+  --text-card-text-size: var(--font-size-16); /* 최소 16px 유지 */
+  --text-card-text-weight: var(--font-weight-400);
+
+  /* card/basic */
+  --text-card-basic-family: var(--font-family-pretendard-gov);
+  --text-card-basic-size: var(--font-size-16); /* PC 18px */
+  --text-card-basic-weight: var(--font-weight-700);
+
+  /* list/day */
+  --text-list-day-family: var(--font-family-pretendard-gov);
+  --text-list-day-size: var(--font-size-16); /* 최소 16px 유지 */
+  --text-list-day-weight: var(--font-weight-400);
+
+  /* list/title */
+  --text-list-title-family: var(--font-family-pretendard-gov);
+  --text-list-title-size: var(--font-size-16); /* 최소 16px 유지 */
+  --text-list-title-weight: var(--font-weight-700);
+
+  /* list/text (Figma에서 굵기가 변수에 연결되어 있지 않음, 글꼴 스타일 Bold = 700) */
+  --text-list-text-family: var(--font-family-pretendard-gov);
+  --text-list-text-size: var(--font-size-16); /* PC 18px */
+  --text-list-text-weight: var(--font-weight-700);
+
+  /* Banner/title */
+  --text-banner-title-family: var(--font-family-pretendard-gov);
+  --text-banner-title-size: var(--font-size-22); /* PC 26px */
+  --text-banner-title-weight: var(--font-weight-800);
+
+  /* Banner/clik (Figma 이름의 오타 clik를 click으로 바로잡음) */
+  --text-banner-click-family: var(--font-family-pretendard-gov);
+  --text-banner-click-size: var(--font-size-18); /* PC 20px */
+  --text-banner-click-weight: var(--font-weight-800);
+
+  /* Banner/basic */
+  --text-banner-basic-family: var(--font-family-pretendard-gov);
+  --text-banner-basic-size: var(--font-size-16); /* PC 18px */
+  --text-banner-basic-weight: var(--font-weight-400);
+
+  /* ================================================================
+   * 아래는 Figma "경주시립도서관-개선" (fileKey dFKMRTOTPvizEEn4UEcjoS)
+   * 검색창 컴포넌트(노드 95-2172)의 변수에서 가져온 값
+   * ================================================================ */
+
+  /* 컬러 */
+  --color-text-sub: #616161; /* Figma: Text/Sub Text (안내 문구) */
+  --color-text-bolder: #222222; /* Figma: Text/Bolder (입력한 검색어) */
+  --color-stroke-light: #b6b6b6; /* Figma: 연한 스트로크 (테두리, 호버 배경) */
+
+  /* 폰트 크기·행간 */
+  --font-size-17: 1.0625rem; /* 17px (Figma: Text/size/17) */
+  --line-height-150: 1.5; /* Figma 텍스트 스타일 행간 1.5 */
+
+  /* 라운드 */
+  --radius-4: 0.25rem; /* 4px */
+
+  /* 크기 */
+  --size-touch-target: 2.75rem; /* 44px, 최소 터치 영역 (돋보기 버튼) */
+  --size-icon-23: 1.4375rem; /* 23px, 서치 아이콘 */
+  --size-search-bar: 3.125rem; /* 50px, 검색창 높이 */
+
+  /* 텍스트 스타일: Text/login (안내 문구, 17px Regular) */
+  --text-login-family: var(--font-family-pretendard-gov);
+  --text-login-size: var(--font-size-17);
+  --text-login-weight: var(--font-weight-400);
+
+  /* 텍스트 스타일: Heading/Sub text (입력한 검색어, 17px Bold) */
+  --text-heading-sub-family: var(--font-family-pretendard-gov);
+  --text-heading-sub-size: var(--font-size-17);
+  --text-heading-sub-weight: var(--font-weight-700);
+
+  /* ================================================================
+   * 아래는 같은 파일(경주시립도서관-개선)의 메인메뉴 컴포넌트(노드 603-1366)에서 가져온 값
+   * ================================================================ */
+
+  /* 컬러 */
+  --color-foundation-grey-900: #292929; /* Figma: Foundation /Grey/grey-900 (메뉴 글자 기본색) */
+  /* Figma 이름은 Primary / Sub지만, 위의 --color-primary(#13398f, 분석 파일)와 값이 달라 brand로 구분 */
+  --color-brand-primary: #133898; /* Figma: Primary (호버 그라데이션 위쪽) */
+  --color-brand-sub: #186ccf; /* Figma: Sub (호버 그라데이션 아래쪽) */
+
+  /* 간격·라운드 */
+  --spacing-4: 0.25rem; /* 4px, 아이콘과 글자 사이 */
+  --radius-6: 0.375rem; /* 6px, 메인메뉴 카드 모서리 */
+
+  /* 크기 */
+  --size-icon-70: 4.375rem; /* 70px, 메인메뉴 아이콘 (Images) */
+  --size-main-menu-width: 7.8125rem; /* 125px, 메인메뉴 카드 너비 */
+  --size-main-menu-height: 8.125rem; /* 130px, 메인메뉴 카드 높이 */
+
+  /* ================================================================
+   * 아래는 같은 파일의 「배너 모음」(노드 603-1307) 배너·방향키에서 가져온 값
+   * ================================================================ */
+
+  /* 컬러 */
+  --color-text-primary-text: #353535; /* Figma: text/primary-text (기존 --color-text-primary #333333과 값이 달라 구분) */
+  --color-arrow-key-bg: #616161; /* Figma: 방향키 배경 (변수 연결 없이 직접 쓰인 값) */
+
+  /* 폰트 크기·행간 */
+  --font-size-13: 0.8125rem; /* 13px (Figma: Text/size/13) */
+  --line-height-129: 1.29; /* Figma: Heading/Sub title 행간 1.2899… */
+
+  /* 간격 */
+  --spacing-14: 0.875rem; /* 14px, 배너 글 묶음 사이 */
+
+  /* 크기 */
+  --size-banner-width: 21.75rem; /* 348px, 배너 너비 */
+  --size-icon-18: 1.125rem; /* 18px, 방향키 아이콘 (Figma 18.286px을 반올림) */
+
+  /* 텍스트 스타일: Text/number (도서관 이름, 13px Regular) */
+  --text-number-family: var(--font-family-pretendard-gov);
+  --text-number-size: var(--font-size-13);
+  --text-number-weight: var(--font-weight-400);
+
+  /* 텍스트 스타일: Heading/Sub title (배너 제목, 20px Bold) */
+  --text-heading-sub-title-family: var(--font-family-pretendard-gov);
+  --text-heading-sub-title-size: var(--font-size-20);
+  --text-heading-sub-title-weight: var(--font-weight-700);
+
+  /* ================================================================
+   * 아래는 같은 파일의 「공지사항」(노드 603-1382)에서 가져온 값
+   * ================================================================ */
+
+  /* 컬러 */
+  --color-button-unavailable: #d20808; /* Figma: 버튼/대출불가 (공지메뉴 호버 글자·점) */
+  --color-background-card: #e7ebf4; /* Figma: 배경/카드배경 (기존 --color-card #f2f5fb와 값이 달라 구분) */
+
+  /* 공지사항 태그 색 (Figma 컴포넌트 공지사항01~07, 변수 연결 없이 직접 쓰인 값) */
+  --color-notice-sirip: var(--color-brand-sub); /* 01 시립 (Figma: Sub) */
+  /* 02 송화: Figma 값 #da9000은 흰 배경 대비 2.63:1로 기준(4.5:1) 미달
+     → 사용자 요청으로 같은 색상을 어둡게 한 #a16b00 (대비 4.55:1) 사용 */
+  --color-notice-songhwa: #a16b00;
+  --color-notice-jungang: #058900; /* 03 중앙 */
+  --color-notice-chilpyeong: #ca4f00; /* 04 칠평 */
+  --color-notice-gampo: #355859; /* 05 감포 */
+  --color-notice-danseok: #931100; /* 06 단석 */
+  --color-notice-kkummaru-border: #8b399c; /* 07 꿈마루 테두리 */
+  --color-notice-kkummaru-text: #a92bc3; /* 07 꿈마루 글자 (Figma에서 테두리와 색이 다름) */
+
+  /* 폰트 크기 */
+  --font-size-15: 0.9375rem; /* 15px (Figma: Text/size/15) */
+  --font-size-24: 1.5rem; /* 24px (Figma: Text/size/24) */
+
+  /* 간격·라운드 */
+  --spacing-2: 0.125rem; /* 2px, 태그 위아래 */
+  --spacing-5: 0.3125rem; /* 5px, 더보기 버튼 좌우 */
+  --radius-25: 1.5625rem; /* 25px, 공지사항 제목줄·목록줄 모서리 */
+
+  /* 크기 */
+  --size-notice-tag-width: 3.9375rem; /* 63px, 공지사항 태그 너비 */
+  --size-dot-4: 0.25rem; /* 4px, 공지메뉴 호버 점 */
+  --size-icon-30: 1.875rem; /* 30px, 더보기 아이콘 */
+
+  /* 텍스트 스타일: Text/banner (15px Regular) */
+  --text-banner-family: var(--font-family-pretendard-gov);
+  --text-banner-size: var(--font-size-15);
+  --text-banner-weight: var(--font-weight-400);
+
+  /* 텍스트 스타일: Heading/로고 (24px Bold) */
+  --text-heading-logo-family: var(--font-family-pretendard-gov);
+  --text-heading-logo-size: var(--font-size-24);
+  --text-heading-logo-weight: var(--font-weight-700);
+
+  /* ================================================================
+   * 아래는 같은 파일의 「카드스타일」(노드 603-1592)에서 가져온 값
+   * (책소개 세트, 대출가능여부, 체크박스, 예약버튼, 상세보기 버튼)
+   * ================================================================ */
+
+  /* 컬러 */
+  --color-button-available: #296d18; /* Figma: 버튼/대출가능 (대출가능 배지, 예약 버튼) */
+  --color-text-secondary-text: #454545; /* Figma: text/secondary-text (책 정보) */
+  --color-black: #1a1a1a; /* Figma: Black (관심담기 글자·체크박스) */
+
+  /* 간격 */
+  --spacing-10: 0.625rem; /* 10px, 추천도서 카드 안 간격 */
+  --spacing-19: 1.1875rem; /* 19px, 책 표지와 책 정보 사이 */
+  --spacing-21: 1.3125rem; /* 21px, 책 정보와 버튼세트 사이 */
+
+  /* 크기 */
+  --size-book-cover-width: 16.25rem; /* 260px, 추천도서 표지 (비율 260:360) */
+  --size-book-thumb-width: 6.875rem; /* 110px, 목록 책 표지 (비율 110:160) */
+  --size-loan-badge-width: 3.9375rem; /* 63px, 대출가능여부 배지 */
+  --size-action-button-width: 7.8125rem; /* 125px, 예약·상세보기 버튼 */
+  --size-icon-24: 1.5rem; /* 24px, 상세보기 화살표 */
+
+  /* ================================================================
+   * 아래는 같은 파일의 「로고모음」(노드 603-2245)에서 가져온 값
+   * ================================================================ */
+  --size-logo-height: 1.625rem; /* 26px, 로고 높이 (Figma 26.444px 반올림) */
+  --spacing-1: 0.0625rem; /* 1px, 로고 사이 간격 (Figma 0.778px 반올림) */
+  --duration-slide: 0.5s; /* 로고 묶음이 밀려나는 시간 (Figma에 값 없음, 사용자와 정한 "부드럽게 밀기") */
+
+  /* ================================================================
+   * 아래는 같은 파일의 「도서예약 확인 팝업」(노드 603-1574)에서 가져온 값
+   * ================================================================ */
+  --spacing-36: 2.25rem; /* 36px, 팝업 안 묶음 사이 */
+  --size-popup-width: 23.75rem; /* 380px, 팝업 너비 */
+  --color-backdrop: rgba(0, 0, 0, 0.5); /* 팝업 뒤 어둡게 가리는 색 (Figma에 값 없음, 사용자와 정함) */
+
+  /* ================================================================
+   * 아래는 같은 파일의 「버튼 모음1」(노드 603-1603)에서 가져온 값
+   * ================================================================ */
+  --size-library-logo-width: 12.125rem; /* 194px, 경주시립도서관 로고 전체 너비 */
+  --size-library-logo-image-width: 1.875rem; /* 30px, 로고 그림 너비 */
+  --size-library-logo-image-height: 1.625rem; /* 26px, 로고 그림 높이 */
+
+  /* ================================================================
+   * 아래는 같은 파일의 「버튼 모음2」(노드 603-2246) 검색 추천·예약세트용 값
+   * ================================================================ */
+  --z-index-dropdown: 10; /* 자동완성 목록이 아래 내용 위에 뜨도록 (Figma에 값 없음) */
+
+  /* ================================================================
+   * 아래는 같은 파일의 「버튼 모음3」(노드 603-2247)에서 가져온 값
+   * ================================================================ */
+  --size-icon-20: 1.25rem; /* 20px, 방향키(데스크탑) 아이콘 */
+  --size-header-menu-width: 5.125rem; /* 82px, 헤더 메뉴 너비(= 밑줄 길이) */
+  --size-header-menu-line: 2px; /* 헤더 메뉴 밑줄 두께 (구분선이라 px) */
+  --size-confirm-cancel-button-width: 5rem; /* 80px, 확인/취소 버튼 너비 */
+
+  /* ================================================================
+   * 아래는 같은 파일의 「버튼 모음4」(노드 603-2248)에서 가져온 값
+   * ================================================================ */
+  --size-underline-2: 2px; /* 목록·자료검색 호버 밑줄 두께 (구분선이라 px) */
+  --size-list-item-width: 9.375rem; /* 150px, 목록 너비 */
+}
+
+/* ===== PC (1024px 이상): 텍스트 스타일 크기를 Figma 원래 값으로 ===== */
+/* 모바일과 크기가 같은 스타일(안내문구, card/brand, card/text, list/day, list/title)은 생략 */
+@media (min-width: 1024px) {
+  :root {
+    --text-top-menu-menubar-size: var(--font-size-18);
+    --text-top-menu-login-size: var(--font-size-20);
+    --text-main-title-size: var(--font-size-32);
+    --text-main-category-size: var(--font-size-20);
+    --text-card-title-size: var(--font-size-22);
+    --text-card-basic-size: var(--font-size-18);
+    --text-list-text-size: var(--font-size-18);
+    --text-banner-title-size: var(--font-size-26);
+    --text-banner-click-size: var(--font-size-20);
+    --text-banner-basic-size: var(--font-size-18);
+  }
+}

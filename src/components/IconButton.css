@@ -1,0 +1,39 @@
+/*
+ * 44 × 44 아이콘 버튼 공통 스타일
+ * - MenuIcon, SearchIcon, SortIcon01, SortIcon02가 함께 씀 (모양이 같아서 한 파일로 모음)
+ * - 크기는 tokens.css의 변수만 사용
+ */
+.icon-button {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-touch-target);
+  height: var(--size-touch-target);
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* 아이콘 그림 44 × 44 (호버·클릭 배경이 그림 안에 들어 있음) */
+.icon-button__icon {
+  width: var(--size-touch-target);
+  height: var(--size-touch-target);
+}
+
+/* 기본 상태에서는 호버 그림을 숨김 */
+.icon-button__icon--hover {
+  display: none;
+}
+
+/* 호버(마우스) + 키보드 포커스 때 호버 그림으로 바꿈 */
+.icon-button:hover .icon-button__icon--default,
+.icon-button:focus-visible .icon-button__icon--default {
+  display: none;
+}
+
+.icon-button:hover .icon-button__icon--hover,
+.icon-button:focus-visible .icon-button__icon--hover {
+  display: block;
+}

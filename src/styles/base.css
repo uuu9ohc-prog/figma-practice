@@ -1,0 +1,58 @@
+/*
+ * base.css: 글꼴 등록, body 글꼴·배경색, 제목·링크 기본 스타일
+ * - 색상·글꼴은 tokens.css의 변수만 사용 (값을 직접 쓰지 않음)
+ * - tokens.css → reset.css → base.css 순서로 불러옴
+ */
+
+/* ===== 글꼴 등록 (src/fonts에 있는 PretendardGOV 2종: Regular 400, Bold 700) ===== */
+/* font-display: swap → 글꼴을 받는 동안에도 글자가 먼저 보이게 함 */
+/* 800·900 굵기 파일은 없어서, 해당 토큰을 쓰는 글자는 브라우저가 Bold(700)로 보여줌 */
+@font-face {
+  font-family: "PretendardGOV";
+  src: url("../fonts/PretendardGOV-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PretendardGOV";
+  src: url("../fonts/PretendardGOV-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== 본문 기본값: Figma 텍스트 스타일 card/text (16px, 400) 기준 ===== */
+body {
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-auto);
+  color: var(--color-text-primary);
+  background-color: var(--color-white-900);
+}
+
+/* ===== 제목 공통: 글꼴·굵기·색만 정하고, 크기는 화면마다 텍스트 스타일 토큰으로 지정 ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-pretendard-gov);
+  font-weight: var(--font-weight-700);
+  line-height: var(--line-height-auto);
+  color: var(--color-text-title);
+}
+
+/* ===== 링크: 주 색상 + 밑줄 (색만으로 링크를 구분하지 않도록 밑줄 유지) ===== */
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* 마우스를 올리면 밑줄을 굵게 (Figma에 hover 디자인이 없어 색은 그대로 둠) */
+a:hover {
+  text-decoration-thickness: 2px;
+}

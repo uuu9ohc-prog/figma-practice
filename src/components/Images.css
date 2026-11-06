@@ -1,0 +1,10 @@
+/*
+ * Images 스타일 (Figma 섹션 603-1347, 아이콘 70 × 70)
+ * - 크기는 tokens.css의 변수만 사용
+ */
+.images {
+  width: var(--size-icon-70);
+  height: var(--size-icon-70);
+  /* Figma: object-cover → 비율을 유지하면서 칸을 채움 */
+  object-fit: cover;
+}

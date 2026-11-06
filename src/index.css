@@ -1,0 +1,6 @@
+/* 1. Figma 디자인 토큰(CSS 변수) */
+@import './styles/tokens.css';
+/* 2. 브라우저 기본 스타일 초기화 */
+@import './styles/reset.css';
+/* 3. 글꼴 등록, 본문 글꼴·배경색, 제목·링크 기본 스타일 */
+@import './styles/base.css';

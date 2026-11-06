@@ -1,0 +1,119 @@
+/*
+ * SearchSuggest 스타일 (Figma 「검색 추천」 603-1731, 366 × 50)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 바깥: 추천 목록을 검색창 바로 아래에 띄우기 위한 기준 ===== */
+.search-suggest {
+  position: relative;
+  width: 100%;
+}
+
+/* ===== 검색창 상자 (Figma: 기본검색) ===== */
+.search-suggest__box {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  width: 100%;
+  min-height: var(--size-search-bar);
+  padding-left: var(--spacing-16);
+  background-color: var(--color-white-900);
+  border: 1px solid var(--color-stroke-light);
+  border-radius: var(--radius-4);
+}
+
+/* Figma: 호버 → 연한 회색 배경 */
+.search-suggest__box:hover {
+  background-color: var(--color-stroke-light);
+}
+
+/* ===== 입력칸 (Figma: 검색 → 입력한 글자는 Heading/Sub text, 17px Bold) ===== */
+.search-suggest__input {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--text-heading-sub-family);
+  font-size: var(--text-heading-sub-size);
+  font-weight: var(--text-heading-sub-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder);
+  background-color: transparent;
+  border: none;
+}
+
+/* 안내 문구 (Figma: Text/login, 17px Regular, 회색) */
+.search-suggest__input::placeholder {
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  color: var(--color-text-sub);
+  opacity: 1;
+}
+
+/* 호버 때 안내 문구: Figma 회색(#616161)은 회색 배경과 대비 3.05:1로 기준 미달
+   → 사용자와 정한 대로 더 진한 색(대비 약 6:1)으로 */
+.search-suggest__box:hover .search-suggest__input::placeholder {
+  color: var(--color-text-primary-text);
+}
+
+/* 브라우저가 type="search"에 자동으로 붙이는 X 버튼을 숨김 */
+.search-suggest__input::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+/* ===== 돋보기 버튼 (Figma 44 × 44, 아이콘 23 × 23) ===== */
+.search-suggest__button {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-touch-target);
+  height: var(--size-touch-target);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-suggest__icon {
+  width: var(--size-icon-23);
+  height: var(--size-icon-23);
+}
+
+/* ===== 추천 검색어 목록 (Figma에 없어서 검색창과 같은 테두리·글꼴로) ===== */
+.search-suggest__list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: var(--z-index-dropdown);
+  margin-top: var(--spacing-4);
+  padding: 0;
+  list-style: none;
+  background-color: var(--color-white-900);
+  border: 1px solid var(--color-stroke-light);
+  border-radius: var(--radius-4);
+}
+
+/* hidden 속성이 있으면 확실히 숨김 */
+.search-suggest__list[hidden] {
+  display: none;
+}
+
+/* 추천어 한 줄 (Figma: Text/login, 터치 영역 44px) */
+.search-suggest__option {
+  display: flex;
+  align-items: center;
+  min-height: var(--size-touch-target);
+  padding-inline: var(--spacing-16);
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder);
+  cursor: pointer;
+}
+
+/* 마우스를 올렸거나 키보드로 고른 추천어: 검색창 호버와 같은 회색 배경 */
+.search-suggest__option:hover,
+.search-suggest__option--active {
+  background-color: var(--color-stroke-light);
+}

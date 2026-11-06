@@ -1,0 +1,28 @@
+/*
+ * LogoGroup 스타일 (Figma 「로고세트」 01~03, 350 × 26)
+ * - 크기는 tokens.css의 변수만 사용
+ */
+
+/* ===== 묶음: 3칸을 같은 너비로 (화면 너비에 맞춰 함께 줄어듦) ===== */
+.logo-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  /* 띠 전체 너비(=보이는 칸 하나)를 그대로 차지 */
+  flex: 0 0 100%;
+  /* Figma 로고 사이 간격 0.778px → 1px로 반올림한 토큰 */
+  gap: var(--spacing-1);
+}
+
+.logo-group__item {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+/* 로고 이미지: Figma 높이 약 26px, 비율은 그대로 두고 칸 안에 맞춤 */
+.logo-group__image {
+  width: 100%;
+  height: var(--size-logo-height);
+  object-fit: contain;
+}

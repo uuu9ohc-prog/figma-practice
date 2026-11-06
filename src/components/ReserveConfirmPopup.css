@@ -1,0 +1,84 @@
+/*
+ * ReserveConfirmPopup 스타일 (Figma 「도서예약 확인 팝업」 380 × 311)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 팝업 상자: 흰 배경, 둥근 모서리, 화면 가운데 (dialog 기본 위치) ===== */
+.reserve-confirm-popup {
+  /* 좁은 화면에서는 좌우 16px 여백을 남기고 줄어듦, 최대는 Figma 너비 */
+  width: calc(100% - var(--spacing-32));
+  max-width: var(--size-popup-width);
+  padding: var(--spacing-16);
+  background-color: var(--color-white-900);
+  border: none;
+  border-radius: var(--radius-4);
+}
+
+/* 팝업이 열려 있을 때만 세로 배치 (닫혀 있을 땐 브라우저가 숨김) */
+.reserve-confirm-popup[open] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-36);
+}
+
+/* 팝업 뒤 화면을 어둡게 가림 */
+.reserve-confirm-popup::backdrop {
+  background-color: var(--color-backdrop);
+}
+
+/* ===== 예약 확인 내용 (도서정보 ↔ 신청문구 사이 36px) ===== */
+.reserve-confirm-popup__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-36);
+}
+
+/* 예약 대상 도서정보 (제목 ↔ 서지정보 사이 9px) */
+.reserve-confirm-popup__book {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-9);
+}
+
+/* 책 제목 (Figma: Heading/Sub title, 20px Bold, 검정) */
+.reserve-confirm-popup__title {
+  font-family: var(--text-heading-sub-title-family);
+  font-size: var(--text-heading-sub-title-size);
+  font-weight: var(--text-heading-sub-title-weight);
+  line-height: var(--line-height-129);
+  color: var(--color-text-title);
+}
+
+/* 서지정보 (Figma: Text/banner, 15px Regular, 사이 2px) */
+.reserve-confirm-popup__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  font-family: var(--text-banner-family);
+  font-size: var(--text-banner-size);
+  font-weight: var(--text-banner-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-secondary-text);
+  overflow-wrap: break-word;
+}
+
+/* 소장도서관 및 자료실만 진한 색 (Figma: text/bolder) */
+.reserve-confirm-popup__location {
+  color: var(--color-text-bolder);
+}
+
+/* 신청문구 (Figma: Text/login, 17px Regular, 검정) */
+.reserve-confirm-popup__question {
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-title);
+}
+
+/* ===== 예약 확인 버튼 모음: 오른쪽 정렬 ===== */
+.reserve-confirm-popup__buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-8); /* Figma는 버튼이 붙어 있지만, 확인 버튼에 배경이 생겨 8px 띄움 */
+}

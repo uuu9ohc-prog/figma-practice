@@ -1,0 +1,74 @@
+/*
+ * BookIntro 스타일 (Figma 「책소개 세트」 603-1593, 348 × 577)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 카드 전체: 세로 배치, 사이 10px ===== */
+.book-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-10);
+  /* Figma 너비 348px → 부모에 맞춰 줄어들 수 있게 %, 최대값은 Figma 값 (배너와 같은 너비) */
+  width: 100%;
+  max-width: var(--size-banner-width);
+}
+
+/* ===== 표지 영역: 표지를 가운데에 두고, 방향키를 겹쳐 놓을 기준 상자 ===== */
+.book-intro__cover {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: var(--spacing-8);
+}
+
+/* 방향키: 표지 오른쪽 아래 모서리에 겹침 (Figma와 같은 위치) */
+.book-intro__arrow-key {
+  position: absolute;
+  /* 표지 바깥 여백(8px)만큼 안쪽 → 표지 모서리에 딱 맞음 */
+  bottom: var(--spacing-8);
+  /* 표지가 가운데 있으므로, 오른쪽 위치 = (카드 너비 - 표지 너비) ÷ 2 */
+  right: max(var(--spacing-8), calc((100% - var(--size-book-cover-width)) / 2));
+}
+
+/* ===== 책 정보 묶음 ===== */
+.book-intro__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-10);
+  width: 100%;
+}
+
+/* 책 제목 (Figma: Heading/로고, 24px Bold) */
+.book-intro__title {
+  font-family: var(--text-heading-logo-family);
+  font-size: var(--text-heading-logo-size);
+  font-weight: var(--text-heading-logo-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder);
+}
+
+/* 지은이 ㅣ 출판사 (Figma: Heading/Sub text, 17px Bold, 가운데 정렬) */
+.book-intro__author {
+  font-family: var(--text-heading-sub-family);
+  font-size: var(--text-heading-sub-size);
+  font-weight: var(--text-heading-sub-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-primary-text);
+  text-align: center;
+}
+
+/* 소개글 (Figma: Text/login, 17px Regular) - Figma 높이 109px ≈ 4줄, 넘치면 … */
+.book-intro__description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-primary-text);
+}

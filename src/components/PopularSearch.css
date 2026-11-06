@@ -1,0 +1,55 @@
+/*
+ * PopularSearch 스타일 (Figma 「인기검색창」 603-2244)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 파란 바 (Figma 368 × 40, 배경 Sub) ===== */
+.popular-search {
+  display: flex;
+  align-items: center;
+  /* Figma 너비 368px = 모바일 402px - 좌우 마진 → 부모에 맞춰 늘어나게 % */
+  width: 100%;
+  /* Figma 높이는 40px이지만, 정지 버튼의 최소 터치 영역(44px)을 지키려고 44px */
+  min-height: var(--size-touch-target);
+  background-color: var(--color-brand-sub);
+}
+
+/* ===== 검색어 목록: 한 줄로, 넘치는 부분은 잘라서 숨김 ===== */
+.popular-search__list {
+  display: flex;
+  flex: 1;
+  /* min-width: 0 → 좁은 화면에서도 바 밖으로 넘치지 않게 */
+  min-width: 0;
+  gap: var(--spacing-14);
+  padding-inline: var(--spacing-14);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* 검색어 (Figma: Text/login, 17px Regular, 흰색) */
+.popular-search__item {
+  flex-shrink: 0;
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-white-900);
+}
+
+/* ===== 정지/재생 버튼 (Figma에 없어서 추가, 최소 터치 영역 44px) ===== */
+.popular-search__button {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-touch-target);
+  height: var(--size-touch-target);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.popular-search__icon {
+  width: var(--size-icon-18);
+  height: var(--size-icon-18);
+}

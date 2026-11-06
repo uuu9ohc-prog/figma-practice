@@ -1,0 +1,43 @@
+/*
+ * PopupButton 스타일 (Figma 「버튼」 62 × 44)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 기본 (Figma: Property 1=기본, 굵은 글자만) ===== */
+.popup-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-touch-target);
+  min-height: var(--size-touch-target);
+  padding: var(--spacing-8) var(--spacing-16);
+  /* Figma: Heading/Sub text (17px Bold) */
+  font-family: var(--text-heading-sub-family);
+  font-size: var(--text-heading-sub-size);
+  font-weight: var(--text-heading-sub-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder);
+  white-space: nowrap;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-4);
+  cursor: pointer;
+}
+
+/* Figma: Property 1=호버 → 연한 회색 배경 (키보드 포커스도 같게) */
+.popup-button:hover,
+.popup-button:focus-visible {
+  background-color: var(--color-stroke-light);
+}
+
+/* ===== 주(확정) 버튼: 초록 배경 + 흰 글자 (Figma에 없어서 예약버튼 색을 사용) ===== */
+.popup-button--primary {
+  color: var(--color-white-900);
+  background-color: var(--color-button-available);
+}
+
+/* 주 버튼 호버: 예약버튼 호버와 같은 진한 회색 */
+.popup-button--primary:hover,
+.popup-button--primary:focus-visible {
+  background-color: var(--color-text-primary-text);
+}

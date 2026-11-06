@@ -1,0 +1,10 @@
+/*
+ * BookSet 스타일 (Figma 「세트」 389 × 228)
+ * - 간격은 tokens.css의 변수만 사용
+ */
+.book-set {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-21); /* 책 정보와 버튼세트 사이 21px */
+  width: 100%;
+}

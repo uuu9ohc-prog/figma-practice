@@ -1,0 +1,11 @@
+/*
+ * BookCover 스타일 (Figma 「책표지」 01 ~ 05, 260 × 360)
+ */
+.book-cover {
+  /* 부모가 좁으면 줄어들고, 최대는 Figma 너비 */
+  width: 100%;
+  max-width: var(--size-book-cover-width);
+  /* Figma 비율 260:360 유지 → 높이를 고정하지 않아도 모양이 같음 */
+  aspect-ratio: 260 / 360;
+  object-fit: cover;
+}
