@@ -1,0 +1,88 @@
+/*
+ * MyBookItem 스타일 (Figma 「세트」 204-4265, 「예약안내세트」 204-4270)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+.my-book-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-36); /* Figma: 책 정보와 예약안내세트 사이 36px */
+  width: 100%;
+  padding-inline: var(--spacing-16);
+}
+
+/* #1 + 책 제목 (Figma: Heading/Sub title, 20px Bold, 두 줄) */
+.my-book-item__title {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--text-heading-sub-title-family);
+  font-size: var(--text-heading-sub-title-size);
+  font-weight: var(--text-heading-sub-title-weight);
+  line-height: var(--line-height-129);
+  color: var(--color-gray-900);
+}
+
+/* 정보 줄 (Figma 17px, 이름은 Bold) */
+.my-book-item__infos {
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder);
+}
+
+.my-book-item__info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+}
+
+.my-book-item__label {
+  font-weight: var(--font-weight-700);
+}
+
+/* <dd> 기본 들여쓰기 제거 */
+.my-book-item__value {
+  margin: 0;
+}
+
+/* ===== 예약중 + [예약취소] ===== */
+.my-book-item__actions {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 상태 글자 (Figma: 회색 17px, 가운데) */
+.my-book-item__status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--size-touch-target);
+  padding: var(--spacing-8);
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-secondary-text);
+}
+
+/* 취소 버튼 (Figma: 흰 배경 + 회색 테두리 + 17px Bold, 너비 꽉 채움) */
+.my-book-item__button {
+  width: 100%;
+  min-height: var(--size-touch-target);
+  padding: var(--spacing-8);
+  font-family: var(--text-heading-sub-family);
+  font-size: var(--text-heading-sub-size);
+  font-weight: var(--text-heading-sub-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder);
+  background-color: var(--color-white-900);
+  border: 1px solid var(--color-stroke-light);
+  border-radius: var(--radius-4);
+  cursor: pointer;
+}
+
+.my-book-item__button:hover,
+.my-book-item__button:focus-visible {
+  background-color: var(--color-stroke-light);
+}

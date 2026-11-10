@@ -1,0 +1,57 @@
+/*
+ * PageTitle 스타일 (Figma 「메뉴창헤더」 204-3862)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+.page-title {
+  width: 100%;
+  background-color: var(--color-white-900);
+}
+
+/* 제목 + ＋ (Figma 높이 50px, 좌우 16px) */
+.page-title__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-8);
+  min-height: var(--size-search-bar);
+  padding: var(--spacing-8) var(--spacing-16);
+}
+
+.page-title__text {
+  font-family: var(--text-heading-logo-family);
+  font-size: var(--text-heading-logo-size);
+  font-weight: var(--text-heading-logo-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder);
+}
+
+.page-title__plus {
+  flex-shrink: 0;
+}
+
+/* 경로: ☰ >자료검색>통합자료검색 (사이 10px) */
+.page-title__path {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-10);
+  padding: var(--spacing-8) var(--spacing-16);
+}
+
+.page-title__path-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* 항목 앞에 > 표시 (Figma 글자 그대로) */
+.page-title__path-item::before {
+  content: '>';
+}
+
+.page-title__path-item {
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-gray-900);
+}

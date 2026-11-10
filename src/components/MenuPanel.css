@@ -1,0 +1,138 @@
+/*
+ * MenuPanel 스타일 (Figma 「팝업창」 204-3830, 430 × 932)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 팝업 전체: 화면을 꽉 채움 (고정 높이 대신 화면 높이만큼) ===== */
+.menu-panel {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-white-900);
+  border: none;
+}
+
+.menu-panel[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-panel::backdrop {
+  background-color: var(--color-backdrop);
+}
+
+/* ===== 위: 진한 배경 + 회원 메뉴 4개 (2 × 2) ===== */
+.menu-panel__top {
+  position: relative;
+  padding: var(--spacing-16);
+  background-color: var(--color-text-bolder);
+}
+
+/* Figma: 가운데 258px 안에 2칸, 사이 가로 6px·세로 8px */
+.menu-panel__member {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-8);
+  width: 100%;
+  max-width: 16.125rem; /* 258px */
+  margin: 0 auto;
+}
+
+.menu-panel__member-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--size-touch-target);
+  padding: var(--spacing-8);
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-white-900);
+  background-color: var(--color-text-sub); /* 회색 (흰 글자 대비 6.2:1) */
+  border-radius: var(--radius-8);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* 로그인·회원가입: 파란 배경 (흰 글자 대비 5.0:1) */
+.menu-panel__member-link--primary {
+  background-color: var(--color-brand-sub);
+}
+
+.menu-panel__member-link:hover,
+.menu-panel__member-link:focus-visible {
+  text-decoration: underline;
+}
+
+/* 닫기 버튼 (Figma에 없음): 오른쪽 위, 흰 글자 */
+.menu-panel__close {
+  position: absolute;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+  min-width: var(--size-touch-target);
+  min-height: var(--size-touch-target);
+  padding: var(--spacing-8);
+  font-family: var(--text-banner-family);
+  font-size: var(--text-banner-size);
+  color: var(--color-white-900);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-panel__close:hover,
+.menu-panel__close:focus-visible {
+  text-decoration: underline;
+}
+
+/* ===== 아래: 왼쪽 1depth(150px) + 오른쪽 2depth ===== */
+.menu-panel__body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.menu-panel__depth1 {
+  flex: 0 0 var(--size-list-item-width); /* 150px */
+  max-width: 40%; /* 아주 좁은 화면에서는 오른쪽 칸도 보이게 */
+  overflow-y: auto;
+  background-color: var(--color-background-card);
+}
+
+.menu-panel__depth1 .list-item {
+  padding-inline: var(--spacing-16);
+  white-space: normal; /* '홈페이지 이용안내'처럼 긴 메뉴는 줄바꿈 */
+}
+
+.menu-panel__depth2 {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  background-color: var(--color-white-900);
+}
+
+.menu-panel__depth2-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 3depth: 한 칸 들여쓰기 */
+.menu-panel__depth3 {
+  padding-left: var(--spacing-16);
+}
+
+.menu-panel__depth3[hidden] {
+  display: none;
+}
+
+.menu-panel__empty {
+  padding: var(--spacing-8);
+  font-family: var(--text-banner-family);
+  font-size: var(--text-banner-size);
+  line-height: var(--line-height-150);
+  color: var(--color-text-sub);
+}

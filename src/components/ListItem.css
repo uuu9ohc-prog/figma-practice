@@ -29,3 +29,21 @@
   background-color: var(--color-white-900);
   border-bottom-color: var(--color-brand-primary);
 }
+
+/* ===== 버튼으로 쓸 때 (전체메뉴 1depth) ===== */
+/* 브라우저 기본 버튼 모양을 지우고 링크와 같은 모양으로 */
+.list-item--button {
+  max-width: none; /* 전체메뉴 왼쪽 칸을 꽉 채움 */
+  text-align: left;
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+}
+
+/* 고른 메뉴: 호버와 같은 모습 (Figma 「팝업창」의 자료검색) */
+.list-item--button[aria-pressed='true'] {
+  background-color: var(--color-white-900);
+  border-bottom-color: var(--color-brand-primary);
+}

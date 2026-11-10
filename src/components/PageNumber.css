@@ -1,0 +1,30 @@
+/*
+ * PageNumber 스타일 (Figma 「체크박스 아이콘」 603-1695, 44 × 44)
+ * - 색상·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 기본 (Figma: Text/login 17px Regular, 회색, 테두리 없음) ===== */
+.page-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-touch-target);
+  height: var(--size-touch-target);
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-primary-text);
+  background-color: transparent;
+  /* 기본 상태에도 투명한 테두리를 두어, 현재 페이지가 되어도 크기가 흔들리지 않게 함 */
+  border: 1px solid transparent;
+  border-radius: var(--radius-4);
+  cursor: pointer;
+}
+
+/* ===== 클릭 = 지금 보고 있는 페이지 (Figma: 흰 배경 + 연한 테두리 + 주황 숫자) ===== */
+.page-number[aria-current='page'] {
+  color: var(--color-orange-500);
+  background-color: var(--color-white-900);
+  border-color: var(--color-stroke-light);
+}

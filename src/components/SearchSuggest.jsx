@@ -1,5 +1,6 @@
 import { useId, useState } from 'react'
 import searchIcon from '../assets/icons/search.svg'
+import searchWhiteIcon from '../assets/icons/search-white.svg'
 import './SearchSuggest.css'
 
 // 추천 검색어를 최대 몇 개까지 보여줄지
@@ -16,8 +17,10 @@ const MAX_SUGGESTIONS = 5
  * - suggestions: 추천 검색어 후보 배열 (src/data/searchSuggestions.js)
  * - defaultValue: 처음에 보여줄 검색어 (검색 결과 화면에서 URL의 q 값)
  * - onSearch: 검색할 때 호출할 함수, 검색어를 넘겨줌
+ * - formId: 검색 form의 id (검색창 밖의 [검색] 버튼에 form={formId}를 주면 그 버튼으로도 검색됨, 선택)
+ * - variant: 'default'(네모 회색 테두리) 또는 'main'(메인 화면 「검색창」 204-3737: 파란 둥근 테두리 + 파란 동그라미 버튼)
  */
-function SearchSuggest({ suggestions, defaultValue = '', onSearch }) {
+function SearchSuggest({ suggestions, defaultValue = '', onSearch, variant = 'default', formId }) {
   // 입력칸에 적힌 글자
   const [keyword, setKeyword] = useState(defaultValue)
   // 추천 목록을 보여줄지 여부
@@ -82,7 +85,7 @@ function SearchSuggest({ suggestions, defaultValue = '', onSearch }) {
 
   return (
     // role="search": 화면낭독기에 "검색 영역"이라고 알려줌
-    <form className="search-suggest" role="search" onSubmit={handleSubmit}>
+    <form id={formId} className={`search-suggest search-suggest--${variant}`} role="search" onSubmit={handleSubmit}>
       <div className="search-suggest__box">
         <input
           className="search-suggest__input"
@@ -104,7 +107,8 @@ function SearchSuggest({ suggestions, defaultValue = '', onSearch }) {
           autoComplete="off"
         />
         <button className="search-suggest__button" type="submit" aria-label="검색">
-          <img className="search-suggest__icon" src={searchIcon} alt="" />
+          {/* main 모양은 파란 버튼 위 흰 돋보기 */}
+          <img className="search-suggest__icon" src={variant === 'main' ? searchWhiteIcon : searchIcon} alt="" />
         </button>
       </div>
 

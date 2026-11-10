@@ -1,0 +1,32 @@
+/*
+ * StatusMessage 스타일 (Figma 「신청헤더」 204-4258)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+.status-message {
+  width: 100%;
+  padding-bottom: var(--spacing-8);
+  /* Figma 「선」: 아래 구분선 */
+  border-bottom: 1px solid var(--color-text-bolder);
+}
+
+/* 큰 글자 안내 (Figma: Heading/로고, 24px Bold) */
+.status-message__title {
+  padding: var(--spacing-8) var(--spacing-16);
+  font-family: var(--text-heading-logo-family);
+  font-size: var(--text-heading-logo-size);
+  font-weight: var(--text-heading-logo-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder);
+  word-break: keep-all; /* 한글이 글자 중간에서 끊기지 않게 */
+}
+
+/* 건수 (Figma: Text/login, 17px) */
+.status-message__count {
+  padding: var(--spacing-8) var(--spacing-16);
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-gray-900);
+}

@@ -1,0 +1,58 @@
+/*
+ * LibrarySelect 스타일 (Figma 「도서관 검색01」 603-1684)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 전체: '도서관' 글자와 선택 상자를 가로로, 사이 11px ===== */
+.library-select {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-11);
+}
+
+/* '도서관' (Figma: Heading/Sub text, 17px Bold, 검정) */
+.library-select__label {
+  flex-shrink: 0;
+  font-family: var(--text-heading-sub-family);
+  font-size: var(--text-heading-sub-size);
+  font-weight: var(--text-heading-sub-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-title);
+}
+
+/* ===== 선택 상자 바깥 (▼ 아이콘의 위치 기준) ===== */
+.library-select__box {
+  position: relative;
+  min-width: 0;
+}
+
+/* 선택 상자 (Figma: 흰 배경 + 연한 테두리, Text/login 17px Regular, 검정) */
+.library-select__select {
+  /* 브라우저 기본 ▼ 모양을 지우고 Figma 아이콘을 대신 씀 */
+  appearance: none;
+  max-width: 100%;
+  min-height: var(--size-touch-target);
+  /* 왼쪽 16px, 오른쪽은 ▼ 칸(44px)만큼 비워 글자가 아이콘에 겹치지 않게 함 */
+  padding: 0 var(--size-touch-target) 0 var(--spacing-16);
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-title);
+  background-color: var(--color-white-900);
+  border: 1px solid var(--color-stroke-light);
+  border-radius: var(--radius-4);
+  cursor: pointer;
+}
+
+/* ▼ 아이콘 (Figma: 44 × 44 칸 가운데 24 × 24) - 원본 ◀을 Figma처럼 돌려서 ▼ */
+.library-select__icon {
+  position: absolute;
+  top: 50%;
+  right: calc((var(--size-touch-target) - var(--size-icon-24)) / 2);
+  width: var(--size-icon-24);
+  height: var(--size-icon-24);
+  transform: translateY(-50%) rotate(-90deg) scaleY(-1);
+  /* 아이콘을 눌러도 아래 선택 상자가 눌리게 함 */
+  pointer-events: none;
+}

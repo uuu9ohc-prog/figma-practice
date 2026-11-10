@@ -1,0 +1,46 @@
+/*
+ * EmptyNotice 스타일 (Figma 「예약 목록 없음」 177-2851, 높이 256px)
+ * - 고정 높이 대신 위아래 여백으로 Figma 높이와 비슷하게 맞춤
+ */
+
+.empty-notice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-24);
+  width: 100%;
+  padding-block: 5rem; /* 80px: Figma 256px 상자 안에서 가운데 */
+  border-bottom: 1px solid var(--color-stroke-light);
+}
+
+/* 안내 문장 (Figma 17px 회색) */
+.empty-notice__message {
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-sub);
+  text-align: center;
+}
+
+/* 도서 검색하기 (Figma: Primary 배경 + 흰 17px Bold, 흰 글자 대비 11:1) */
+.empty-notice__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--size-touch-target);
+  padding: var(--spacing-8) var(--spacing-16);
+  font-family: var(--text-heading-sub-family);
+  font-size: var(--text-heading-sub-size);
+  font-weight: var(--text-heading-sub-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-white-900);
+  background-color: var(--color-brand-primary);
+  border-radius: var(--radius-4);
+  text-decoration: none;
+}
+
+.empty-notice__link:hover,
+.empty-notice__link:focus-visible {
+  text-decoration: underline;
+}

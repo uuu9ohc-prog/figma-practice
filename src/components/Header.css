@@ -1,0 +1,91 @@
+/*
+ * Header 스타일 (Figma 「헤더」 204-3718)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+/* ===== 헤더 전체: 흰 배경 + 아래 그림자 ===== */
+.header {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-white-900);
+  box-shadow: var(--shadow-header);
+}
+
+/* ===== 본문 바로가기: 평소엔 화면 밖, 키보드 포커스 때만 왼쪽 위에 보임 ===== */
+.header__skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-dropdown);
+  padding: var(--spacing-8) var(--spacing-16);
+  background-color: var(--color-brand-primary);
+  color: var(--color-white-900);
+  transform: translateY(-100%);
+}
+
+.header__skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ===== 최상단헤더: 로그인·회원가입·사이트 맵 (오른쪽 정렬) ===== */
+.header__top {
+  display: flex;
+  justify-content: flex-end;
+  padding-inline: var(--spacing-16);
+  border-bottom: 1px solid var(--color-stroke-normal);
+}
+
+.header__top-list {
+  display: flex;
+}
+
+/* 항목 사이 세로 구분선 (마지막 항목은 없음) */
+.header__top-item:not(:last-child) {
+  border-right: 0.5px solid var(--color-stroke-light);
+}
+
+/* Figma: 높이 44px, 안쪽 여백 8px, 13px 글자 */
+.header__top-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--size-touch-target);
+  padding: var(--spacing-8);
+  font-family: var(--text-number-family);
+  font-size: var(--text-number-size);
+  font-weight: var(--text-number-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-gray-900);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.header__top-link:hover,
+.header__top-link:focus-visible {
+  text-decoration: underline;
+}
+
+/* ===== 상단 헤더: 로고(왼쪽) + 아이콘(오른쪽) ===== */
+.header__main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-8);
+  min-height: var(--size-search-bar); /* Figma 높이 50px */
+  padding-inline: var(--spacing-16);
+  border-bottom: 1px solid var(--color-stroke-normal);
+}
+
+.header__icons {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+/* ===== PC: 배경은 화면 전체, 안쪽 내용은 가운데 정렬 ===== */
+@media (min-width: 1024px) {
+  .header__top,
+  .header__main {
+    padding-inline: max(var(--spacing-16), calc((100% - var(--size-content-max-width)) / 2));
+  }
+}

@@ -117,3 +117,49 @@
 .search-suggest__option--active {
   background-color: var(--color-stroke-light);
 }
+
+/* ================================================================
+ * main 모양 (Figma 메인 화면 「검색창」 204-3737)
+ * - 파란(Sub) 1.5px 둥근 테두리, 오른쪽에 파란 동그라미 + 흰 돋보기
+ * ================================================================ */
+.search-suggest--main .search-suggest__box {
+  padding: 0 0 0 var(--spacing-16);
+  border: 1.5px solid var(--color-brand-sub);
+  border-radius: var(--radius-50);
+}
+
+/* main 모양은 Figma에 호버 디자인이 없어서 흰 배경 유지 */
+.search-suggest--main .search-suggest__box:hover {
+  background-color: var(--color-white-900);
+}
+
+.search-suggest--main .search-suggest__box:hover .search-suggest__input::placeholder {
+  color: var(--color-text-sub);
+}
+
+/* 파란 동그라미 버튼 (Figma 52.6px → 검색창 높이와 같은 50px) */
+.search-suggest--main .search-suggest__button {
+  width: var(--size-search-bar);
+  height: var(--size-search-bar);
+  background-color: var(--color-brand-sub);
+  border-radius: 50%;
+}
+
+/* 흰 돋보기 (Figma 29.4px) */
+.search-suggest--main .search-suggest__icon {
+  width: var(--size-icon-30);
+  height: var(--size-icon-30);
+}
+
+/* 추천 목록도 둥근 모서리에 맞춤 */
+.search-suggest--main .search-suggest__list {
+  border-color: var(--color-brand-sub);
+  border-radius: var(--radius-16);
+  overflow: hidden;
+}
+
+/* Figma 메인 검색창 안내 문구는 20px → 입력 글자도 같은 크기로 */
+.search-suggest--main .search-suggest__input,
+.search-suggest--main .search-suggest__input::placeholder {
+  font-size: var(--font-size-20);
+}

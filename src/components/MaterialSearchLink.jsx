@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import './MaterialSearchLink.css'
 
 /*
@@ -10,11 +11,12 @@ import './MaterialSearchLink.css'
  * - text: 링크 글자 (기본값 '통합자료검색')
  * - href: 이동할 주소 (아직 없으면 '#')
  */
+// Link: 새로고침 없이 화면만 바꾸는 링크 (새로고침하면 예약·관심도서 상태가 사라지므로 <a> 대신 사용)
 function MaterialSearchLink({ text = '통합자료검색', href = '#' }) {
   return (
-    <a className="material-search-link" href={href}>
+    <Link className="material-search-link" to={href}>
       {text}
-    </a>
+    </Link>
   )
 }
 

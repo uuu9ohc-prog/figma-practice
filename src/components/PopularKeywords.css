@@ -1,0 +1,88 @@
+/*
+ * PopularKeywords 스타일 (Figma 「검색 추천」 204-3869)
+ * - 모양은 검색창(SearchSuggest 기본 모양)과 같은 흰 배경 + 회색 테두리 + 4px 모서리
+ */
+
+.popular-keywords {
+  width: 100%;
+  background-color: var(--color-white-900);
+  border: 1px solid var(--color-stroke-light);
+  border-radius: var(--radius-4);
+}
+
+/* 닫힌 줄 (Figma 높이 50px, 왼쪽 16px, 사이 8px) */
+.popular-keywords__summary {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  min-height: var(--size-search-bar);
+  padding-left: var(--spacing-16);
+  cursor: pointer;
+  list-style: none; /* 브라우저 기본 ▶ 표시 제거 */
+}
+
+/* Safari 기본 ▶ 표시 제거 */
+.popular-keywords__summary::-webkit-details-marker {
+  display: none;
+}
+
+/* '인기 검색어' (Figma: Heading/Sub text, 17px Bold) */
+.popular-keywords__label {
+  flex-shrink: 0;
+  font-family: var(--text-heading-sub-family);
+  font-size: var(--text-heading-sub-size);
+  font-weight: var(--text-heading-sub-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder);
+}
+
+/* 미리보기 검색어 (Figma: Text/banner, 15px), 넘치면 … */
+.popular-keywords__preview {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--text-banner-family);
+  font-size: var(--text-banner-size);
+  font-weight: var(--text-banner-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-gray-900);
+}
+
+/* ▼ (44px 칸 안 24px 그림, ◀ 그림을 돌려서 ▼) */
+.popular-keywords__icon {
+  flex-shrink: 0;
+  margin-inline: calc((var(--size-touch-target) - var(--size-icon-24)) / 2);
+  transform: rotate(-90deg) scaleY(-1);
+}
+
+.popular-keywords[open] .popular-keywords__icon {
+  transform: rotate(90deg);
+}
+
+/* 펼친 목록: 검색어 버튼을 줄바꿈하며 나열 */
+.popular-keywords__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  padding: 0 var(--spacing-8) var(--spacing-8);
+}
+
+.popular-keywords__button {
+  min-height: var(--size-touch-target);
+  padding: var(--spacing-8);
+  font-family: var(--text-banner-family);
+  font-size: var(--text-banner-size);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder);
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-4);
+  cursor: pointer;
+}
+
+.popular-keywords__button:hover,
+.popular-keywords__button:focus-visible {
+  background-color: var(--color-stroke-light);
+}

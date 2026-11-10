@@ -1,0 +1,91 @@
+/*
+ * SearchPage 스타일 (Figma 「검색」 204-3861)
+ * - 배경은 화면 전체 너비, 안쪽 내용은 최대 430px(모바일 시안 너비)로 가운데 정렬
+ */
+
+/* 화면 전체: Figma 회색 배경 */
+.search-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--color-background-list);
+}
+
+/* 제목줄·결과는 흰 배경 (Figma), 안쪽 최대 너비 */
+.search-page > .page-title,
+.search-page__results {
+  max-width: var(--size-content-max-width);
+  margin: 0 auto;
+}
+
+.search-page__results {
+  width: 100%;
+  background-color: var(--color-white-900);
+}
+
+/* ===== 검색 영역 (Figma: 위아래 36px, 좌우 16px + 안쪽 16px = 검색창 366px) ===== */
+.search-page__form-area {
+  padding: var(--spacing-36) var(--spacing-16);
+}
+
+.search-page__inner {
+  width: 100%;
+  max-width: var(--size-content-max-width);
+  margin: 0 auto;
+  padding-inline: var(--spacing-16);
+}
+
+.search-page__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-10);
+}
+
+/* ===== 도서관·자료실 선택 (Figma: 가운데, 아래 구분선. 사이는 Figma 36px → 좁은 화면에서도 한 줄에 들어가게 16px) ===== */
+.search-page__filters {
+  display: flex;
+  flex-wrap: wrap; /* 좁으면 다음 줄로 */
+  justify-content: center;
+  gap: var(--spacing-16);
+  padding: 0 var(--spacing-16) var(--spacing-36);
+  border-bottom: 1px solid var(--color-stroke-normal);
+}
+
+/* 선택 상자 두 개를 나란히: 선택 상자는 가장 긴 항목(꿈마루작은도서관)만큼 넓어지므로
+   칸 너비를 똑같이 나누고(flex: 1), 최대 너비를 정해 Figma처럼 한 줄에 놓음 */
+.search-page__filters .library-select {
+  flex: 1 1 0;
+  min-width: 8.5rem; /* 136px보다 좁아지면 다음 줄로 */
+  max-width: 12rem;
+}
+
+.search-page__filters .library-select__box,
+.search-page__filters .library-select__select {
+  width: 100%;
+}
+
+/* ===== [검색] 버튼 (Figma: 진한 회색 배경 + 흰 글자, 위아래 32px) ===== */
+.search-page__submit-area {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--spacing-32);
+}
+
+.search-page__submit {
+  min-height: var(--size-touch-target);
+  padding-inline: 1.75rem; /* 28px (Figma) */
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-white-900);
+  background-color: var(--color-text-primary-text);
+  border: none;
+  border-radius: var(--radius-4);
+  cursor: pointer;
+}
+
+.search-page__submit:hover,
+.search-page__submit:focus-visible {
+  background-color: var(--color-gray-900);
+}

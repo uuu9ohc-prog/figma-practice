@@ -1,0 +1,84 @@
+/*
+ * CancelConfirmPopup 스타일 (Figma 「예약취소 확인 팝업」 177-2629, 380 × 271)
+ * - Figma는 Inter 글꼴이지만 프로젝트 규칙에 따라 PretendardGOV 사용
+ */
+
+.cancel-confirm-popup {
+  /* 좁은 화면에서는 좌우 16px 여백을 남기고 줄어듦, 최대는 Figma 너비 */
+  width: calc(100% - var(--spacing-32));
+  max-width: var(--size-popup-width);
+  /* reset.css의 margin: 0 때문에 사라진 <dialog> 기본 가운데 정렬을 되살림 */
+  margin: auto;
+  padding: var(--spacing-16);
+  background-color: var(--color-white-900);
+  border: none;
+  border-radius: var(--radius-4);
+}
+
+.cancel-confirm-popup[open] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.cancel-confirm-popup::backdrop {
+  background-color: var(--color-backdrop);
+}
+
+/* 질문 (Figma 22px Bold) */
+.cancel-confirm-popup__question {
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--font-size-22);
+  font-weight: var(--font-weight-700);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder);
+}
+
+.cancel-confirm-popup__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+/* 책 제목 (Figma 20px Bold, 행간 1.29) */
+.cancel-confirm-popup__book {
+  font-family: var(--text-heading-sub-title-family);
+  font-size: var(--text-heading-sub-title-size);
+  font-weight: var(--text-heading-sub-title-weight);
+  line-height: var(--line-height-129);
+  color: var(--color-text-bolder);
+}
+
+/* 첫째 안내 (Figma 17px) */
+.cancel-confirm-popup__message {
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-primary-text);
+}
+
+/* 둘째 안내 (Figma 15px 회색, 흰 배경 대비 6.2:1) */
+.cancel-confirm-popup__help {
+  font-family: var(--text-banner-family);
+  font-size: var(--text-banner-size);
+  font-weight: var(--text-banner-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-sub);
+}
+
+/* 버튼: 오른쪽 정렬, 사이 8px, 너비 112px (Figma) */
+.cancel-confirm-popup__buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-8);
+}
+
+.cancel-confirm-popup__buttons .confirm-cancel-button {
+  min-width: 7rem; /* 112px */
+}
+
+/* 취소(유지) 버튼: Figma처럼 회색 테두리 */
+.cancel-confirm-popup__buttons .confirm-cancel-button--cancel {
+  border: 1px solid var(--color-stroke-light);
+}

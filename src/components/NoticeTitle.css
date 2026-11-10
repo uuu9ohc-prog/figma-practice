@@ -40,3 +40,24 @@
   height: var(--size-icon-30);
   transform: rotate(-90deg) scaleY(-1);
 }
+
+/* ===== list 모양: 연한 회색 배경 + ▼ 24px (메인 화면 공지사항·문화프로그램) ===== */
+.notice-title--list {
+  background-color: var(--color-background-list);
+}
+
+.notice-title--list .notice-title__icon {
+  width: var(--size-icon-24);
+  height: var(--size-icon-24);
+}
+
+/* ===== plus 모양: ＋ 아이콘 44px (팝업존). 원래 ＋ 모양이라 돌리지 않음 ===== */
+.notice-title--plus .notice-title__more {
+  padding-inline: 0;
+}
+
+.notice-title--plus .notice-title__icon {
+  width: var(--size-touch-target);
+  height: var(--size-touch-target);
+  transform: none;
+}

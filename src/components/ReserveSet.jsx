@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import './ReserveSet.css'
 
 /*
@@ -15,12 +16,13 @@ import './ReserveSet.css'
  * - className: 놓이는 자리에 맞춰 바깥에서 추가할 클래스 (예: 버튼세트 안)
  * - ref: 부모가 이 버튼/링크로 키보드 포커스를 옮길 때 사용 (React 19에서는 ref를 일반 props처럼 받음)
  */
+// Link: 새로고침 없이 화면만 바꾸는 링크 (새로고침하면 예약·관심도서 상태가 사라지므로 <a> 대신 사용)
 function ReserveSet({ status, onCancel, href = '#', className = '', ref }) {
   if (status === 'confirm') {
     return (
-      <a ref={ref} className={`reserve-set reserve-set--confirm ${className}`} href={href}>
+      <Link ref={ref} className={`reserve-set reserve-set--confirm ${className}`} to={href}>
         예약확인
-      </a>
+      </Link>
     )
   }
 

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useId, useRef } from 'react'
 import PopupButton from './PopupButton.jsx'
 import './ReserveConfirmPopup.css'
 
@@ -17,6 +17,8 @@ import './ReserveConfirmPopup.css'
 function ReserveConfirmPopup({ isOpen, book, onConfirm, onCancel }) {
   // <dialog> 태그를 직접 열고 닫기 위해 참조(ref)를 만듦
   const dialogRef = useRef(null)
+  // 제목 id: 검색 결과처럼 팝업이 여러 개 있어도 id가 겹치지 않게 고유 id를 만듦
+  const titleId = useId()
 
   // isOpen 값이 바뀌면 팝업을 열거나 닫음
   useEffect(() => {
@@ -37,14 +39,14 @@ function ReserveConfirmPopup({ isOpen, book, onConfirm, onCancel }) {
     <dialog
       ref={dialogRef}
       className="reserve-confirm-popup"
-      aria-labelledby="reserve-confirm-popup-title"
+      aria-labelledby={titleId}
       onCancel={handleCancel}
     >
       {/* 예약 확인 내용 */}
       <div className="reserve-confirm-popup__content">
         {/* 예약 대상 도서정보 */}
         <div className="reserve-confirm-popup__book">
-          <h2 id="reserve-confirm-popup-title" className="reserve-confirm-popup__title">
+          <h2 id={titleId} className="reserve-confirm-popup__title">
             {book.title}
           </h2>
 

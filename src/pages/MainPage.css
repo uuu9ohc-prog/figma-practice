@@ -1,0 +1,87 @@
+/*
+ * MainPage 스타일 (Figma 「모바일」 204-3717)
+ * - 묶음 사이 간격 36px, 좌우 스크린 마진 16px (Figma 값)
+ * - 배경은 화면 전체 너비, 안쪽 내용은 최대 430px(모바일 시안 너비)로 가운데 정렬
+ *   (PC 시안을 받으면 PC 최대 너비로 바꿀 예정)
+ */
+
+/* ===== 페이지 전체: 묶음을 세로로 36px 간격 (헤더와 첫 묶음 사이, 마지막 묶음과 푸터 사이도 36px) ===== */
+.main-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-36);
+  padding-block: var(--spacing-36);
+}
+
+/* 묶음 하나: 화면 전체 너비 */
+.main-page__section {
+  width: 100%;
+}
+
+/* 회색 배경 묶음 (휴관일): Figma 위아래 36px, 좌우 8px */
+.main-page__section--gray {
+  padding: var(--spacing-36) var(--spacing-8);
+  background-color: var(--color-background-list);
+}
+
+/* 안쪽 내용: 좌우 16px 스크린 마진 + 가운데 정렬 */
+.main-page__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: var(--size-content-max-width);
+  margin: 0 auto;
+  padding-inline: var(--spacing-16);
+}
+
+/* 묶음01, 묶음03: 안쪽 간격 36px */
+.main-page__inner--search,
+.main-page__inner--wide-gap {
+  gap: var(--spacing-36);
+}
+
+/* 묶음02: 회색 영역이 이미 좌우 8px을 가지므로, 달력 카드 너비(Figma 362px)에 맞게 좌우 26px만 더함 */
+.main-page__inner--calendar {
+  padding-inline: calc(var(--spacing-24) + var(--spacing-2)); /* 26px → 8 + 26 = Figma 34px */
+}
+
+/* 묶음04: 제목줄과 추천도서 사이 (Figma 27px → 24px 토큰) */
+.main-page__inner--book {
+  gap: var(--spacing-24);
+}
+
+/* 묶음05, 06: 제목줄과 목록 사이 24px, 왼쪽 정렬 */
+.main-page__inner--list {
+  align-items: stretch;
+  gap: var(--spacing-24);
+}
+
+/* ===== 메인메뉴 상자 (Figma 「메뉴창」: 흰 배경, 둥근 16px, 파란 그림자, 안쪽 8px) ===== */
+.main-page__menu {
+  width: 100%;
+  padding: var(--spacing-8);
+  background-color: var(--color-white-900);
+  border-radius: var(--radius-16);
+  box-shadow: var(--shadow-menu-box);
+}
+
+/* Figma는 4칸 × 2줄. 화면이 좁아 한 칸이 92px보다 작아지면 3칸 → 2칸으로 자동으로 줄어듦
+   (고정 너비 대신 grid의 auto-fit 사용 → 320px에서도 가로 스크롤 없음) */
+.main-page__menu-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5.75rem, 1fr));
+}
+
+.main-page__menu-item {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+/* ===== 공지사항·문화프로그램 목록: 줄 사이 8px ===== */
+.main-page__notice-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}

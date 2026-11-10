@@ -1,0 +1,146 @@
+/*
+ * Calendar 스타일 (Figma 「달력」 204-3753)
+ * - Figma 달력은 크기를 줄여 넣은 인스턴스라 소수점 값이 많음
+ *   → 가까운 토큰 값으로 맞춤 (예: 24.492px → 24px, 21.81px 제목 → 원래 변수 24px)
+ */
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  width: 100%;
+}
+
+/* ===== 제목 '휴관일' (Figma: Heading/로고, Text/size/24) ===== */
+.calendar__title {
+  font-family: var(--text-heading-logo-family);
+  font-size: var(--text-heading-logo-size);
+  font-weight: var(--text-heading-logo-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder);
+}
+
+/* ===== 흰 카드 ===== */
+.calendar__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  width: 100%;
+  padding-block: var(--spacing-12);
+  background-color: var(--color-white-900);
+  border-radius: var(--radius-10);
+}
+
+/* ===== 카드 위쪽: <2026.10.07> + ＋ ===== */
+.calendar__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--spacing-4);
+}
+
+.calendar__month {
+  font-family: var(--text-heading-sub-title-family);
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-700);
+  line-height: var(--line-height-150);
+  color: var(--color-gray-900);
+}
+
+/* ＋ 그림은 20px이지만 터치 영역은 44px */
+.calendar__more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-touch-target);
+  height: var(--size-touch-target);
+}
+
+/* ===== 날짜 표 ===== */
+.calendar__table {
+  width: 100%;
+  padding-inline: var(--spacing-8);
+  border-collapse: separate;
+  border-spacing: 0 var(--spacing-12); /* 줄 사이 간격 (Figma 14.96px ≒ 12~16px) */
+  table-layout: fixed; /* 7칸을 똑같은 너비로 */
+  text-align: center;
+}
+
+/* 요일줄: 13px 글자 + 아래 회색 선 (Figma 9.19px은 너무 작아 읽기 어려워 13px 토큰 사용) */
+.calendar__weekdays th {
+  padding-block: var(--spacing-2);
+  border-bottom: 1px solid var(--color-stroke-normal);
+  font-family: var(--text-number-family);
+  font-size: var(--text-number-size);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-150);
+  color: var(--color-gray-900);
+}
+
+/* 날짜 숫자 (Figma 15.66px → 16px) */
+.calendar__day {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-calendar-day);
+  height: var(--size-calendar-day);
+  border-radius: 50%;
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-400);
+  color: var(--color-gray-900);
+  letter-spacing: -0.09375rem; /* Figma -1.5px: 두 자리 숫자를 동그라미 안에 맞춤 */
+}
+
+/* 동그라미 색 (흰 글자 대비: 파랑 5.0:1, 빨강 5.7:1, 진회색 12:1) */
+.calendar__day--event {
+  background-color: var(--color-brand-sub);
+  color: var(--color-white-900);
+}
+
+.calendar__day--holiday {
+  background-color: var(--color-button-unavailable);
+  color: var(--color-white-900);
+}
+
+.calendar__day--today {
+  background-color: var(--color-text-primary-text);
+  color: var(--color-white-900);
+}
+
+/* ===== 안내: ● 휴무일 ● 행사일 ● 오늘 ===== */
+.calendar__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+  padding-inline: var(--spacing-16);
+}
+
+.calendar__legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  font-family: var(--text-number-family);
+  font-size: var(--text-number-size);
+  font-weight: var(--text-number-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-gray-900);
+}
+
+.calendar__dot {
+  width: var(--size-calendar-dot);
+  height: var(--size-calendar-dot);
+  border-radius: 50%;
+}
+
+.calendar__dot--holiday {
+  background-color: var(--color-button-unavailable);
+}
+
+.calendar__dot--event {
+  background-color: var(--color-brand-sub);
+}
+
+.calendar__dot--today {
+  background-color: var(--color-text-primary-text);
+}

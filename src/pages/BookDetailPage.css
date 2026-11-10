@@ -1,0 +1,104 @@
+/*
+ * BookDetailPage 스타일 (Figma 「상세보기01」 204-4180)
+ * - 묶음 사이 36px, 좌우 16px, 안쪽 최대 430px 가운데 정렬
+ */
+
+.book-detail-page {
+  width: 100%;
+  max-width: var(--size-content-max-width);
+  margin: 0 auto;
+}
+
+/* 제목줄 아래 구분선 (Figma) */
+.book-detail-page > .page-title {
+  border-bottom: 1px solid var(--color-stroke-normal);
+}
+
+.book-detail-page__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-36);
+  padding: var(--spacing-36) var(--spacing-16);
+}
+
+/* ===== 표지 + 버튼 (Figma: 사이 24px, 아래 구분선) ===== */
+.book-detail-page__cover-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-24);
+  padding-bottom: var(--spacing-36);
+  border-bottom: 1px solid var(--color-stroke-light);
+}
+
+/* 표지 150 × 218 (Figma), 좁은 화면에서는 줄어듦 */
+.book-detail-page__cover {
+  width: 9.375rem; /* 150px */
+  max-width: 100%;
+  aspect-ratio: 150 / 218;
+  object-fit: cover;
+  border: 1px solid var(--color-stroke-normal);
+}
+
+/* 버튼: 오른쪽 정렬, 좁으면 다음 줄로 */
+.book-detail-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--spacing-8);
+  width: 100%;
+}
+
+.book-detail-page__reserve-set {
+  width: auto;
+  min-width: var(--size-action-button-width);
+}
+
+/* ===== 책 정보 (Figma: 사이 16px) ===== */
+.book-detail-page__info,
+.book-detail-page__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+/* 제목·책 소개 (Figma: Heading/로고, 24px Bold) */
+.book-detail-page__title {
+  font-family: var(--text-heading-logo-family);
+  font-size: var(--text-heading-logo-size);
+  font-weight: var(--text-heading-logo-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-bolder);
+}
+
+/* 지은이·출판사 줄 (Figma: 회색 배경 상자, 17px) */
+.book-detail-page__summary {
+  padding: var(--spacing-8);
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-text-secondary-text);
+  background-color: var(--color-background-list);
+}
+
+.book-detail-page__materials {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 책 소개 글 (Figma 17px) */
+.book-detail-page__intro-text {
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  font-weight: var(--text-login-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-gray-900);
+}
+
+/* 없는 책 안내 */
+.book-detail-page__not-found {
+  font-family: var(--text-login-family);
+  font-size: var(--text-login-size);
+  line-height: var(--line-height-150);
+}

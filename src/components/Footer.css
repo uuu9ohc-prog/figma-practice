@@ -1,0 +1,138 @@
+/*
+ * Footer 스타일 (Figma 「푸터세트」 204-3794)
+ * - 색상·간격·글꼴은 tokens.css의 변수만 사용
+ */
+
+.footer {
+  width: 100%;
+}
+
+/* 안쪽 내용 너비: 모바일은 꽉 채우고, PC는 가운데 정렬 */
+.footer__inner {
+  width: 100%;
+  max-width: var(--size-content-max-width);
+  margin: 0 auto;
+}
+
+/* ===== 위: 회색 로고 영역 (Figma 위아래 36px, 로고 너비 350px) ===== */
+.footer__logos {
+  padding: var(--spacing-36) var(--spacing-16);
+  background-color: var(--color-background-footer-logo);
+}
+
+.footer__logos .footer__inner {
+  /* Figma: 430 화면에서 로고 띠 350px → 좌우 40px. 16px 기본 여백 + 24px */
+  padding-inline: var(--spacing-24);
+}
+
+/* ===== 아래: 진한 안내 영역 (Figma 위아래 32px, 좌우 16px) ===== */
+.footer__info {
+  padding: var(--spacing-32) var(--spacing-16);
+  background-color: var(--color-text-bolder);
+}
+
+.footer__inner--info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-32);
+}
+
+.footer__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+/* 안내 링크 4개: 흰 글자 + 오른쪽 흰 세로선, 아래 연한 회색 선 */
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  padding-block: var(--spacing-4);
+  border-bottom: 1px solid var(--color-stroke-light);
+}
+
+.footer__link-item:not(:last-child) {
+  border-right: 1px solid var(--color-white-900);
+}
+
+.footer__link {
+  display: block;
+  padding-inline: var(--spacing-8);
+  font-family: var(--text-banner-family);
+  font-size: var(--text-banner-size);
+  font-weight: var(--text-banner-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-white-900);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.footer__link:hover,
+.footer__link:focus-visible {
+  text-decoration: underline;
+}
+
+/* 주소·연락처 (Figma: 13px, #cecece → 진한 배경 대비 10.8:1) */
+.footer__address {
+  padding: var(--spacing-8);
+  font-family: var(--text-number-family);
+  font-size: var(--text-number-size);
+  font-weight: var(--text-number-weight);
+  font-style: normal; /* <address> 기본 기울임 제거 */
+  line-height: var(--line-height-150);
+  color: var(--color-background-footer-logo);
+}
+
+/* ===== 관련사이트 [▼] ===== */
+.footer__related {
+  width: 100%;
+}
+
+.footer__related-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--size-search-bar); /* Figma 높이 50px */
+  padding: var(--spacing-8) var(--spacing-16);
+  border: 1px solid var(--color-stroke-light);
+  border-radius: var(--radius-25);
+  font-family: var(--text-heading-sub-family);
+  font-size: var(--text-heading-sub-size);
+  font-weight: var(--text-heading-sub-weight);
+  line-height: var(--line-height-150);
+  color: var(--color-stroke-light);
+  cursor: pointer;
+  list-style: none; /* 브라우저 기본 ▶ 표시 제거 */
+}
+
+/* Safari 기본 ▶ 표시 제거 */
+.footer__related-summary::-webkit-details-marker {
+  display: none;
+}
+
+/* ◀ 그림을 Figma처럼 돌려서 ▼로, 펼치면 ▲로 */
+.footer__related-icon {
+  margin-inline: var(--spacing-5) var(--spacing-5);
+  transform: rotate(-90deg) scaleY(-1);
+}
+
+.footer__related[open] .footer__related-icon {
+  transform: rotate(90deg);
+}
+
+/* 펼쳤을 때 목록 (Figma에 디자인이 없어 최소한으로 꾸밈) */
+.footer__related-list {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-8) var(--spacing-16);
+}
+
+.footer__related-link {
+  display: flex;
+  align-items: center;
+  min-height: var(--size-touch-target);
+  font-family: var(--text-banner-family);
+  font-size: var(--text-banner-size);
+  color: var(--color-white-900);
+}

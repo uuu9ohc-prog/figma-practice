@@ -41,7 +41,7 @@ function PopularSearch({ keywords }) {
   }, [isMoving, total])
 
   // startIndex부터 시작해서 한 바퀴 돈 순서로 다시 정렬
-  // 예) startIndex가 2면 [해리포터, 그리스로마신화, …, 흔한남매, 삼국지]
+  // 예) startIndex가 2면 [해리포터, 그리스로마신화, …, 폭풍의 언덕, 삼국지]
   const ordered = [...keywords.slice(startIndex), ...keywords.slice(0, startIndex)]
 
   return (

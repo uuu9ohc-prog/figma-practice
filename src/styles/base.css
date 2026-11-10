@@ -56,3 +56,17 @@ a {
 a:hover {
   text-decoration-thickness: 2px;
 }
+
+/* ===== 화면에는 안 보이고 화면낭독기만 읽는 글자 =====
+   예: 달력에서 색으로만 보이는 '휴무일'을 글자로도 알려줄 때 (색만으로 구분 금지 규칙) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

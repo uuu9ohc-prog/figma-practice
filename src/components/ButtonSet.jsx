@@ -15,15 +15,16 @@ import './ButtonSet.css'
  * - onToggleInterest: 관심담기 체크박스를 눌렀을 때 실행할 함수
  * - isReserved: 예약을 마쳤는지 여부
  * - onReserve: 도서예약신청 버튼을 눌렀을 때 실행할 함수
- * - reserveSetRef: 예약 후 「예약확인」으로 키보드 포커스를 옮기기 위한 참조
+ * - reserveSetRef: 예약 후 「예약확인」으로 키보드 포커스를 옮기기 위한 참조 (선택)
+ * - reserveHref: 「예약확인」을 눌렀을 때 이동할 주소 (예약현황 화면)
  * - detailHref: 상세보기 링크 주소
  */
-function ButtonSet({ isInterested, onToggleInterest, isReserved, onReserve, reserveSetRef, detailHref }) {
+function ButtonSet({ isInterested, onToggleInterest, isReserved, onReserve, reserveSetRef, detailHref, reserveHref }) {
   return (
     <div className="button-set">
       <Checkbox checked={isInterested} onChange={onToggleInterest} />
       {isReserved ? (
-        <ReserveSet ref={reserveSetRef} status="confirm" className="button-set__reserve-set" />
+        <ReserveSet ref={reserveSetRef} status="confirm" href={reserveHref} className="button-set__reserve-set" />
       ) : (
         <ReserveButton onClick={onReserve} />
       )}

@@ -8,6 +8,8 @@
   /* 좁은 화면에서는 좌우 16px 여백을 남기고 줄어듦, 최대는 Figma 너비 */
   width: calc(100% - var(--spacing-32));
   max-width: var(--size-popup-width);
+  /* reset.css의 margin: 0 때문에 사라진 <dialog> 기본 가운데 정렬을 되살림 */
+  margin: auto;
   padding: var(--spacing-16);
   background-color: var(--color-white-900);
   border: none;

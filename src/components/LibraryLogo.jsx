@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import logoImage from '../assets/images/library-logo.png'
 import './LibraryLogo.css'
 
@@ -9,13 +10,14 @@ import './LibraryLogo.css'
  * props
  * - href: 이동할 주소 (기본값 '/' 메인 화면)
  */
+// Link: 새로고침 없이 화면만 바꾸는 링크 (새로고침하면 예약·관심도서 상태가 사라지므로 <a> 대신 사용)
 function LibraryLogo({ href = '/' }) {
   return (
-    <a className="library-logo" href={href}>
+    <Link className="library-logo" to={href}>
       {/* 옆에 '경주시립도서관' 글자가 있으므로 그림은 alt를 비워 두 번 읽지 않게 함 */}
       <img className="library-logo__image" src={logoImage} alt="" />
       <span className="library-logo__text">경주시립도서관</span>
-    </a>
+    </Link>
   )
 }
 
