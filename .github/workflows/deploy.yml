@@ -1,0 +1,58 @@
+# main 브랜치에 push하면 자동으로 빌드해서 GitHub Pages에 배포하는 설정
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # GitHub 화면의 Actions 탭에서 수동 실행도 가능하게
+
+# Pages에 배포하려면 이 권한이 필요함
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 연달아 push해도 배포가 겹치지 않게 하나씩만 실행
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 코드 내려받기
+        uses: actions/checkout@v4
+
+      - name: Node.js 설치
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: 패키지 설치 (package-lock.json 기준)
+        run: npm ci
+
+      - name: 빌드 (dist 폴더 생성)
+        run: npm run build
+
+      # GitHub Pages는 /figma-practice/books/1 같은 주소로 새로고침하면 파일이 없어 404를 띄운다.
+      # index.html을 404.html로 복사해 두면 404 대신 앱이 열리고 react-router가 화면을 찾아준다.
+      - name: 새로고침 404 대비 (index.html → 404.html 복사)
+        run: cp dist/index.html dist/404.html
+
+      - name: 빌드 결과 업로드
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: GitHub Pages에 배포
+        id: deployment
+        uses: actions/deploy-pages@v4

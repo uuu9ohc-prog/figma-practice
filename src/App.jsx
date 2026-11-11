@@ -68,7 +68,9 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    // basename: 주소 앞의 '/figma-practice/'를 빼고 화면 주소(/, /search 등)를 비교하게 함
+    // (vite.config.js의 base 값이 import.meta.env.BASE_URL로 들어옴)
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ScrollToTop />
       <Header />
       <main id="main" tabIndex={-1}>
