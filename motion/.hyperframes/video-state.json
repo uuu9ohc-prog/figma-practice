@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "historyId": "30ed0beb-2f42-4ba5-ac9e-1259290f71e5",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "design.md": {
+      "hash": "837c44b641644d55832cce84ebdb142ebdb58e29b7333dec10bee0df4c756d36",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\83\\837c44b641644d55832cce84ebdb142ebdb58e29b7333dec10bee0df4c756d36"
+    },
+    "edit.md": {
+      "hash": "9fd279cc736a7c274bc689af0e8685c97320693ff2a77d4de39f1fbda3d182b5",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\9f\\9fd279cc736a7c274bc689af0e8685c97320693ff2a77d4de39f1fbda3d182b5"
+    },
+    "index.html": {
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\e3\\e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "reference.md": {
+      "hash": "4d388ffac30a0b51bc17bb1dd2037f22b69dc5b76b0690338fe754801003e873",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\4d\\4d388ffac30a0b51bc17bb1dd2037f22b69dc5b76b0690338fe754801003e873"
+    },
+    "scene-img/00_overview.png": {
+      "hash": "2a3894b24164e311552b80a698c2501109916565c4ad94d555d1d411d27fe434",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\2a\\2a3894b24164e311552b80a698c2501109916565c4ad94d555d1d411d27fe434"
+    },
+    "scene-img/S1_등장.png": {
+      "hash": "2c6c37e45dea8acacf7d37bde568f05f7bdc401515c128d480f21fac58b6c6aa",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\2c\\2c6c37e45dea8acacf7d37bde568f05f7bdc401515c128d480f21fac58b6c6aa"
+    },
+    "scene-img/S1_입력.png": {
+      "hash": "b011ce89dd39e3fc3761b6a1f6d506606533c53694fab9932bc18b6584201f67",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\b0\\b011ce89dd39e3fc3761b6a1f6d506606533c53694fab9932bc18b6584201f67"
+    },
+    "scene-img/S1_전환.png": {
+      "hash": "68833e2b50adcb016c665220b5ace4b0833ac5e709809c3377a99fbdd2399276",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\68\\68833e2b50adcb016c665220b5ace4b0833ac5e709809c3377a99fbdd2399276"
+    },
+    "scene-img/S1_핵심동작.png": {
+      "hash": "8b6921400596b341bd02865364561f089d99fe20eceaa5e444072498970b096d",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\8b\\8b6921400596b341bd02865364561f089d99fe20eceaa5e444072498970b096d"
+    },
+    "scene-img/S2_등장.png": {
+      "hash": "ee34fe777af5083e091a5b99e02130e916ee5d7828beb2f746a650465f480e9e",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\ee\\ee34fe777af5083e091a5b99e02130e916ee5d7828beb2f746a650465f480e9e"
+    },
+    "scene-img/S2_핵심동작.png": {
+      "hash": "ae9dce28a1aa192ad1b7144d5393ab2a1f48533367606b74c33ef8f09f29e2f0",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\ae\\ae9dce28a1aa192ad1b7144d5393ab2a1f48533367606b74c33ef8f09f29e2f0"
+    },
+    "scene-img/S3_등장.png": {
+      "hash": "6eef9c908cf8c75be8873528961acfe66314f35e60df0688693442562305f193",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\6e\\6eef9c908cf8c75be8873528961acfe66314f35e60df0688693442562305f193"
+    },
+    "scene-img/S3_전환.png": {
+      "hash": "bd77a2da684a05e64063a76baaee8de1be9776797a43262e83e8f3e176b61931",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\bd\\bd77a2da684a05e64063a76baaee8de1be9776797a43262e83e8f3e176b61931"
+    },
+    "scene-img/S3_핵심동작.png": {
+      "hash": "fa57b3297bdbc02aced96d318919cf1ad919b62facefa3ddd332b5f68d630268",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\fa\\fa57b3297bdbc02aced96d318919cf1ad919b62facefa3ddd332b5f68d630268"
+    },
+    "scene-img/S4_등장.png": {
+      "hash": "3692fadab1de4f950c82a3a43e1a6c575e8b3a4bcef226449ff2e9f62e1624ea",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\36\\3692fadab1de4f950c82a3a43e1a6c575e8b3a4bcef226449ff2e9f62e1624ea"
+    },
+    "scene-img/S4_전환.png": {
+      "hash": "aeb1d04243ada0e3bc14cfe35d8ecd102e9387e433f7ae43fa620a6dbe326ef5",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\ae\\aeb1d04243ada0e3bc14cfe35d8ecd102e9387e433f7ae43fa620a6dbe326ef5"
+    },
+    "scene-img/S4_핵심동작.png": {
+      "hash": "0a0caed7c77041350d1558fe2716442b0ace3a102a1302fcc12704292620760f",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\0a\\0a0caed7c77041350d1558fe2716442b0ace3a102a1302fcc12704292620760f"
+    },
+    "scene-img/S5_등장.png": {
+      "hash": "3cec396dbe88ceb9b44385330faec590b6b57ee235a7547c2f7c4eeae08c682a",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\3c\\3cec396dbe88ceb9b44385330faec590b6b57ee235a7547c2f7c4eeae08c682a"
+    },
+    "scene-img/S5_핵심동작.png": {
+      "hash": "d5a2ba313999a97f6ccfa7f2b9d32c6db60bb8f856166e6fbce8ef77b5d61f94",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\d5\\d5a2ba313999a97f6ccfa7f2b9d32c6db60bb8f856166e6fbce8ef77b5d61f94"
+    },
+    "scene.md": {
+      "hash": "933f26d43a225b75f03d9deb4a357dca579c88734800b11471c5ae5b4b4598f2",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\93\\933f26d43a225b75f03d9deb4a357dca579c88734800b11471c5ae5b4b4598f2"
+    },
+    "아이디어.md": {
+      "hash": "7ff9c95eaff8c6b5c4ec6b6df85a3a3e758b5cfac9642a78ab5e3203f5e5383a",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\7f\\7ff9c95eaff8c6b5c4ec6b6df85a3a3e758b5cfac9642a78ab5e3203f5e5383a"
+    },
+    "입력칸 아래의 경고 문구와 화면 가운데 뜨는 경고 창을 같은 이름으로 불러도 될까요？ 둘 다 중요한 내용을 알리지만 화면에 나타나는 방식은 다릅니다. [PabilFq7LZQ].webm": {
+      "hash": "27a9e610607816a4c90a5cf1fe1b06f9b237899ef072892fce946189e9a574f8",
+      "content": "C:\\Users\\305\\.cache\\hyperframes\\history\\30ed0beb-2f42-4ba5-ac9e-1259290f71e5\\blobs\\27\\27a9e610607816a4c90a5cf1fe1b06f9b237899ef072892fce946189e9a574f8"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  }
+}

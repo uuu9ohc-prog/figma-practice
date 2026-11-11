@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      /* 색은 design.md 2-1 */
+      :root {
+        --brand: #186ccf;
+        --ink: #222222;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--brand);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      /* 0 ~ 24초 배경 #186CCF (design.md 3-1) */
+      #bg {
+        position: absolute;
+        inset: 0;
+        background: var(--brand);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div id="bg"></div>
+
+      <!-- S1 ~ S4: 휴대폰 화면 (0 ~ 24초) -->
+      <div
+        id="phone"
+        data-composition-id="phone"
+        data-composition-src="compositions/phone.html"
+        data-start="0"
+        data-duration="24"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 2"
+      ></div>
+
+      <!-- S1 ~ S3 자막 (0 ~ 18.2초) -->
+      <div
+        id="captions"
+        data-composition-id="captions"
+        data-composition-src="compositions/captions.html"
+        data-start="0"
+        data-duration="18.2"
+        data-track-index="2"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 3"
+      ></div>
+
+      <!-- S4 → S5 형광펜 덮개 (23.4 ~ 24.0초) -->
+      <div
+        id="cover"
+        data-composition-id="cover"
+        data-composition-src="compositions/cover.html"
+        data-start="23.4"
+        data-duration="0.6"
+        data-track-index="3"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 5"
+      ></div>
+
+      <!-- S5 마무리 (24 ~ 30초) -->
+      <div
+        id="ending"
+        data-composition-id="ending"
+        data-composition-src="compositions/ending.html"
+        data-start="24"
+        data-duration="6"
+        data-track-index="4"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+        style="z-index: 4"
+      ></div>
+
+      <!-- 합성 효과음 30초 트랙 (motion.md 6장) -->
+      <audio
+        id="sfx"
+        class="clip"
+        data-start="0"
+        data-duration="30"
+        data-track-index="5"
+        data-volume="1"
+        src="assets/audio/sound_30s.wav"
+      ></audio>
+    </div>
+    <script>
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

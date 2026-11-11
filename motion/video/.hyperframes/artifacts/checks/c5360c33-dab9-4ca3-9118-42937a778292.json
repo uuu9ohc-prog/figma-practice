@@ -1,0 +1,200 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 5
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 2,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 18.333,
+        "selector": "#ph-burst",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -602.86,
+          "top": 389.14,
+          "right": 1630.86,
+          "bottom": 2622.86,
+          "width": 2233.73,
+          "height": 2233.73
+        },
+        "containerSelector": "#ph-frame",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 56,
+          "top": 160,
+          "right": 1024,
+          "bottom": 1560,
+          "width": 968,
+          "height": 1400
+        },
+        "overflow": {
+          "left": 658.86,
+          "right": 606.86,
+          "bottom": 1062.86
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/phone.html",
+        "bbox": {
+          "x": -602.86,
+          "y": 389.14,
+          "width": 2233.73,
+          "height": 2233.73
+        },
+        "firstSeen": 18.333,
+        "lastSeen": 18.333,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          18.333
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 18.333,
+        "selector": "#ph-burst",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -602.86,
+          "top": 389.14,
+          "right": 1630.86,
+          "bottom": 2622.86,
+          "width": 2233.73,
+          "height": 2233.73
+        },
+        "containerSelector": "#ph-frame",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 56,
+          "top": 160,
+          "right": 1024,
+          "bottom": 1560,
+          "width": 968,
+          "height": 1400
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/phone.html",
+        "bbox": {
+          "x": -602.86,
+          "y": 389.14,
+          "width": 2233.73,
+          "height": 2233.73
+        },
+        "firstSeen": 18.333,
+        "lastSeen": 18.333,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          18.333
+        ]
+      }
+    ],
+    "duration": 30,
+    "samples": [
+      1.667,
+      5,
+      8.333,
+      11.667,
+      15,
+      18.333,
+      21.667,
+      25,
+      28.333
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 2,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.667,
+      8.333,
+      15,
+      21.667,
+      28.333
+    ],
+    "checked": 14,
+    "passed": 14
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "first_frame_empty",
+        "severity": "warning",
+        "message": "Frame 0 is covered by #bg: an opaque element over the canvas hides every other clip, and the first frame is the thumbnail on social players. Move it below the content; see canvas_covered.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 240
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

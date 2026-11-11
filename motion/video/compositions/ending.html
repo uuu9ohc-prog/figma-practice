@@ -1,0 +1,119 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Pretendard GOV";
+      src: url("assets/fonts/PretendardGOV-Bold.woff2") format("woff2");
+      font-weight: 700;
+    }
+    #root {
+      position: absolute;
+      inset: 0;
+      background: #ffffff;
+      font-family: "Pretendard GOV", sans-serif;
+    }
+    /* 로고: x 92, y 271, 437 × 90 = S1 헤더 로고 자리 (D: R1 0 ~ 7.0초) */
+    #end-logo {
+      position: absolute;
+      left: 92px;
+      top: 271px;
+      width: 436.5px;
+    }
+    .end-line {
+      position: absolute;
+      left: 0;
+      width: 1080px;
+      text-align: center;
+      font-size: 80px;
+      font-weight: 700;
+      line-height: 104px;
+      color: #222222;
+      white-space: pre;
+    }
+    .end-word {
+      opacity: 0;
+    }
+    /* 반짝이 별: 로고 둘레에 6개 (꾸밈용이라 깜빡임 기준에 걸리지 않는 작은 크기) */
+    .end-star {
+      position: absolute;
+      opacity: 0;
+    }
+    /* "예약 끝." 알약 상자: 가운데 x 540, y 918 ~ 1038, 350 × 120 */
+    #end-pill {
+      position: absolute;
+      left: 365px;
+      top: 918px;
+      width: 350px;
+      height: 120px;
+      border-radius: 60px;
+      background: #186ccf;
+      color: #ffffff;
+      font-size: 80px;
+      font-weight: 700;
+      line-height: 120px;
+      text-align: center;
+      white-space: pre;
+      clip-path: inset(0px 50% 0px 50% round 60px);
+    }
+  </style>
+
+  <div id="root" data-composition-id="ending" data-width="1080" data-height="1920">
+    <img id="end-logo" src="assets/img/s5-logo.png" alt="경주시립도서관" />
+    <!-- 로고(x 92 ~ 529, y 271 ~ 361) 둘레 반짝이 별. 색: 주 색상 #186CCF, 로고 금색 계열 #E8B923 -->
+    <svg id="end-star1" class="end-star" data-layout-ignore style="left: 36px; top: 214px; width: 88px; height: 88px" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z" fill="#186ccf" /></svg>
+    <svg id="end-star2" class="end-star" data-layout-ignore style="left: 255px; top: 207px; width: 60px; height: 60px" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z" fill="#e8b923" /></svg>
+    <svg id="end-star3" class="end-star" data-layout-ignore style="left: 500px; top: 226px; width: 80px; height: 80px" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z" fill="#186ccf" /></svg>
+    <svg id="end-star4" class="end-star" data-layout-ignore style="left: 492px; top: 338px; width: 56px; height: 56px" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z" fill="#e8b923" /></svg>
+    <svg id="end-star5" class="end-star" data-layout-ignore style="left: 144px; top: 346px; width: 64px; height: 64px" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z" fill="#186ccf" /></svg>
+    <svg id="end-star6" class="end-star" data-layout-ignore style="left: 388px; top: 202px; width: 48px; height: 48px" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z" fill="#e8b923" /></svg>
+    <!-- 1줄: 가운데 y 845 -->
+    <div class="end-line" style="top: 793px"><span id="end-w1" class="end-word">찾고,</span> <span id="end-w2" class="end-word">누르면,</span></div>
+    <!-- 2줄: 알약 상자 가운데 y 978 -->
+    <div class="end-line" style="top: 926px; line-height: 104px"><span id="end-w3" class="end-word" data-layout-allow-overlap data-layout-allow-occlusion>예약 끝.</span></div>
+    <!-- 상자 안 흰 글자: 상자 모양 안에서만 보임 (마스크) -->
+    <div id="end-pill" data-layout-allow-overlap>예약 끝.</div>
+  </div>
+
+  <script>
+    function endBez(x1, y1, x2, y2) {
+      const cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
+      const cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
+      const sx = (u) => ((ax * u + bx) * u + cx) * u;
+      const sy = (u) => ((ay * u + by) * u + cy) * u;
+      return (t) => {
+        if (t <= 0) return 0;
+        if (t >= 1) return 1;
+        let lo = 0, hi = 1, u = t;
+        for (let i = 0; i < 40; i++) {
+          if (sx(u) < t) lo = u; else hi = u;
+          u = (lo + hi) / 2;
+        }
+        return sy(u);
+      };
+    }
+    const OUT = endBez(0, 0, 0.2, 1);
+
+    // 이 장면의 0초 = 영상 24초. S5 시각 = 24 + R1 시각
+    const IN = endBez(0.4, 0, 1, 1);
+    const tl = gsap.timeline({ paused: true });
+    // S5 등장(24.0 ~ 24.65): 로고가 0.6 → 1배로 나타나고, 둘레에서 별 6개가 차례로 반짝임
+    tl.fromTo("#end-logo", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: OUT }, 0);
+    for (let i = 1; i <= 6; i++) {
+      const t = (i - 1) * 0.06;
+      tl.fromTo("#end-star" + i, { opacity: 0, scale: 0, rotation: 0 }, { opacity: 1, scale: 1, rotation: 45, duration: 0.2, ease: OUT, immediateRender: false }, t);
+      tl.to("#end-star" + i, { opacity: 0, scale: 0, rotation: 90, duration: 0.15, ease: IN }, t + 0.2);
+    }
+    tl.set("#end-w1", { opacity: 1 }, 1.2); // 25.2 (B: R1 1.2초)
+    tl.set("#end-w2", { opacity: 1 }, 1.5); // 25.5 (B: R1 1.5초)
+    tl.set("#end-w3", { opacity: 1 }, 1.7); // 25.7 (B: R1 1.7초)
+    // 26.1 ~ 26.4 알약 상자 열림 (C: R1 2.1 ~ 2.4초)
+    tl.fromTo(
+      "#end-pill",
+      { clipPath: "inset(0px 50% 0px 50% round 60px)" },
+      { clipPath: "inset(0px 0% 0px 0% round 60px)", duration: 0.3, ease: OUT, immediateRender: false },
+      2.1,
+    );
+    tl.set({}, {}, 6);
+
+    window.__timelines["ending"] = tl;
+  </script>
+</template>

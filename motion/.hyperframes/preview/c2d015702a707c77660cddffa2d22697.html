@@ -1,0 +1,32 @@
+<!DOCTYPE html><html><head><script data-hf-gsap-fallback>
+(function(){
+  var cdnBase="/api/vendor/npm/gsap@3.15.0/dist/";
+  var loaded={};
+  function loadFallback(file){
+    if(loaded[file])return loaded[file];
+    return loaded[file]=new Promise(function(ok,fail){
+      var s=document.createElement("script");
+      s.src=cdnBase+file;s.hfGsapFallback=true;s.onload=ok;s.onerror=fail;
+      document.head.appendChild(s);
+    });
+  }
+  document.addEventListener("error",function(e){
+    var t=e.target;
+    if(!t||t.tagName!=="SCRIPT"||!t.src||t.hfGsapFallback)return;
+    var m=t.src.match(/gsap[^/]*\/dist\/(.+\.js)/);
+    if(m)loadFallback(m[1]).catch(function(){
+      reportError(new Error("GSAP could not load from "+t.src+" or "+cdnBase+m[1]+", so this preview's animations will not play."));
+    });
+  },true);
+})();
+</script>
+<meta name="hyperframes-gsap-base-url" content="/api/vendor/npm">
+<meta name="hyperframes-studio-preview"><script>(function(){var seen=window.__hfPreviewErrors=[],kinds=window.__hfPreviewErrorKinds=[],known={SyntaxError:1,TypeError:1,ReferenceError:1,RangeError:1},runtime="/api/runtime.js";
+addEventListener("error",function(e){seen.push(e.message||String(e));
+var name=e.error&&e.error.constructor&&e.error.constructor.name,path="";
+try{var url=e.filename&&new URL(e.filename,window.location.href);if(url&&url.origin===window.location.origin)path=url.pathname}catch(_){}
+kinds.push({name:known[name]===1?name:"other",origin:!path?"unknown":path===runtime?"runtime":path.indexOf("/api/projects/")===0?"project":"studio"})});})();</script>
+<script data-hyperframes-preview-runtime="1" src="/api/runtime.js"></script>
+<base href="/api/projects/motion/preview/">
+<script type="importmap">{"imports":{"/":"/api/projects/motion/preview/","/api/projects/motion/preview/":"/api/projects/motion/preview/"}}</script><style data-hyperframes-text-rendering="true">html,body,*{text-rendering:geometricPrecision}</style><meta name="hyperframes-project-signature" content="37c2e4e9cbb12bd6f0b04766">
+</head><body></body></html>

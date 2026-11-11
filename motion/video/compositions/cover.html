@@ -1,0 +1,53 @@
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+    }
+    /* 형광펜 밑줄 자리(x 124 ~ 817, y 510 ~ 547)에서 시작해 화면 전체를 덮음 (motion.md 5장) */
+    #cov-fill {
+      position: absolute;
+      inset: 0;
+      background: rgba(24, 108, 207, 0.25);
+      clip-path: inset(510px 263px 1373px 124px);
+    }
+  </style>
+
+  <div id="root" data-composition-id="cover" data-width="1080" data-height="1920">
+    <div id="cov-fill"></div>
+  </div>
+
+  <script>
+    function covBez(x1, y1, x2, y2) {
+      const cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
+      const cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
+      const sx = (u) => ((ax * u + bx) * u + cx) * u;
+      const sy = (u) => ((ay * u + by) * u + cy) * u;
+      return (t) => {
+        if (t <= 0) return 0;
+        if (t >= 1) return 1;
+        let lo = 0, hi = 1, u = t;
+        for (let i = 0; i < 40; i++) {
+          if (sx(u) < t) lo = u; else hi = u;
+          u = (lo + hi) / 2;
+        }
+        return sy(u);
+      };
+    }
+    const IN = covBez(0.4, 0, 1, 1);
+    const IO = covBez(0.4, 0, 0.2, 1);
+
+    const tl = gsap.timeline({ paused: true });
+    // ① 23.4 ~ 23.8: 선 → 면 덮기, 투명도 25% → 100%, 색 #C5DAF2 (G: R1 1.7 ~ 2.1초)
+    tl.fromTo(
+      "#cov-fill",
+      { clipPath: "inset(510px 263px 1373px 124px)", backgroundColor: "rgba(24, 108, 207, 0.25)" },
+      { clipPath: "inset(0px 0px 0px 0px)", backgroundColor: "rgba(197, 218, 242, 1)", duration: 0.4, ease: IN },
+      0,
+    );
+    // ② 23.8 ~ 24.0: #C5DAF2 → #FFFFFF
+    tl.to("#cov-fill", { backgroundColor: "rgba(255, 255, 255, 1)", duration: 0.2, ease: IO }, 0.4);
+
+    window.__timelines["cover"] = tl;
+  </script>
+</template>

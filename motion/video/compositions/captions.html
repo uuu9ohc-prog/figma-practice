@@ -1,0 +1,73 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Pretendard GOV";
+      src: url("assets/fonts/PretendardGOV-Bold.woff2") format("woff2");
+      font-weight: 700;
+    }
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: "Pretendard GOV", sans-serif;
+    }
+    /* 자막 상자: 가운데 x 540, 위쪽 y 1603, 세로 114, 모서리 57, 테두리 1.5px #186CCF (motion.md 1-2) */
+    .cap-box {
+      position: absolute;
+      top: 1603px;
+      height: 114px;
+      border-radius: 57px;
+      background: #ffffff;
+      border: 1.5px solid #186ccf;
+      color: #222222;
+      font-size: 60px;
+      font-weight: 700;
+      line-height: 111px;
+      text-align: center;
+      white-space: nowrap;
+      clip-path: inset(0px 50% 0px 50% round 57px);
+    }
+  </style>
+
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+    <div id="cap-s1" class="cap-box" style="left: 254px; width: 572px" data-var-text="cap1">검색창, 이제 한눈에</div>
+    <div id="cap-s2" class="cap-box" style="left: 142px; width: 796px" data-var-text="cap2">검색어는 그대로, 결과는 바로</div>
+    <div id="cap-s3" class="cap-box" style="left: 228px; width: 624px" data-var-text="cap3">버튼 한 번, 확인 한 번</div>
+  </div>
+
+  <script>
+    function capBez(x1, y1, x2, y2) {
+      const cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
+      const cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
+      const sx = (u) => ((ax * u + bx) * u + cx) * u;
+      const sy = (u) => ((ay * u + by) * u + cy) * u;
+      return (t) => {
+        if (t <= 0) return 0;
+        if (t >= 1) return 1;
+        let lo = 0, hi = 1, u = t;
+        for (let i = 0; i < 40; i++) {
+          if (sx(u) < t) lo = u; else hi = u;
+          u = (lo + hi) / 2;
+        }
+        return sy(u);
+      };
+    }
+    const OUT = capBez(0, 0, 0.2, 1);
+    const IN = capBez(0.4, 0, 1, 1);
+
+    const tl = gsap.timeline({ paused: true });
+    const CLOSED = "inset(0px 50% 0px 50% round 57px)";
+    const OPEN = "inset(0px 0% 0px 0% round 57px)";
+
+    // 상자 열림 0.3초 (F: R1 2.1 ~ 2.4초), 사라짐 0.3초 ease-in
+    function caption(sel, openAt, fadeAt) {
+      tl.fromTo(sel, { clipPath: CLOSED, opacity: 1 }, { clipPath: OPEN, duration: 0.3, ease: OUT, immediateRender: false }, openAt);
+      tl.to(sel, { opacity: 0, duration: 0.3, ease: IN }, fadeAt);
+    }
+    caption("#cap-s1", 2.4, 5.7);
+    caption("#cap-s2", 9.8, 14.0);
+    caption("#cap-s3", 15.4, 17.8);
+    tl.set({}, {}, 18.2);
+
+    window.__timelines["captions"] = tl;
+  </script>
+</template>

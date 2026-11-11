@@ -1,0 +1,271 @@
+<template>
+  <style>
+    @font-face {
+      font-family: "Pretendard GOV";
+      src: url("assets/fonts/PretendardGOV-Regular.woff2") format("woff2");
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: "Pretendard GOV";
+      src: url("assets/fonts/PretendardGOV-Bold.woff2") format("woff2");
+      font-weight: 700;
+    }
+    #root {
+      position: absolute;
+      inset: 0;
+      font-family: "Pretendard GOV", sans-serif;
+    }
+    /* 휴대폰 화면: x 56, y 160, 968 × 1400, 모서리 40, 그림자 아래 12 / 흐림 32 (motion.md 1-2) */
+    #ph-frame {
+      position: absolute;
+      left: 56px;
+      top: 160px;
+      width: 968px;
+      height: 1400px;
+      border-radius: 40px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    }
+    .ph-layer {
+      position: absolute;
+      inset: 0;
+    }
+    /* Figma 3배 내보내기(가로 1290px)를 968px로 줄여 씀 (motion.md 1-4) */
+    .ph-screen {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 968px;
+    }
+    .ph-abs {
+      position: absolute;
+      display: block;
+    }
+    .ph-patch {
+      position: absolute;
+      background: #ffffff;
+    }
+    .ph-type {
+      position: absolute;
+      color: #222222;
+      /* pre로 두면 코드 들여쓰기까지 글자로 그려져서 nowrap 사용 */
+      white-space: nowrap;
+    }
+    .ph-ch {
+      display: none;
+    }
+    .ph-cursor {
+      display: inline-block;
+      width: 3px;
+      background: #222222;
+      vertical-align: top;
+      opacity: 0;
+    }
+  </style>
+
+  <div id="root" data-composition-id="phone" data-width="1080" data-height="1920">
+    <div id="ph-frame" data-hold>
+      <!-- ===== S1 메인 `모바일` (스크롤 0) ===== -->
+      <div id="ph-s1" class="ph-layer">
+        <img id="ph-s1-screen" class="ph-screen" src="assets/img/s1-main.png" alt="" />
+        <!-- 아이콘 8개 자리를 흰색으로 덮고, 그 위에 아이콘을 차례로 올림 -->
+        <div class="ph-patch" style="left: 54px; top: 513.9px; width: 860px; height: 549px"></div>
+        <img id="ph-icon1" class="ph-abs" src="assets/img/s1-icon1.png" alt="" style="left: 54px; top: 513.9px; width: 215.25px" />
+        <img id="ph-icon2" class="ph-abs" src="assets/img/s1-icon2.png" alt="" style="left: 268.5px; top: 513.9px; width: 215.25px" />
+        <img id="ph-icon3" class="ph-abs" src="assets/img/s1-icon3.png" alt="" style="left: 483.75px; top: 513.9px; width: 215.25px" />
+        <img id="ph-icon4" class="ph-abs" src="assets/img/s1-icon4.png" alt="" style="left: 698.25px; top: 513.9px; width: 215.25px" />
+        <img id="ph-icon5" class="ph-abs" src="assets/img/s1-icon5.png" alt="" style="left: 54px; top: 788.4px; width: 215.25px" />
+        <img id="ph-icon6" class="ph-abs" src="assets/img/s1-icon6.png" alt="" style="left: 268.5px; top: 788.4px; width: 215.25px" />
+        <img id="ph-icon7" class="ph-abs" src="assets/img/s1-icon7.png" alt="" style="left: 483.75px; top: 788.4px; width: 215.25px" />
+        <img id="ph-icon8" class="ph-abs" src="assets/img/s1-icon8.png" alt="" style="left: 698.25px; top: 788.4px; width: 215.25px" />
+
+        <!-- 검색창 (639:4019): 강조 때 안의 글자·돋보기도 같이 커지도록 묶음 -->
+        <div id="ph-sbox" class="ph-abs" style="left: 36px; top: 294.75px; width: 895.5px; height: 120px">
+          <img class="ph-abs" src="assets/img/s1-searchbox.png" alt="" style="left: 0; top: 0; width: 895.5px" />
+          <!-- 3.6초: 안내 문구 지움 (흰 상자로 덮음) -->
+          <div id="ph-s1-hint-off" class="ph-patch" style="left: 32px; top: 30px; width: 420px; height: 60px; opacity: 0"></div>
+          <div class="ph-type" style="left: 36px; top: 37.5px; font-size: 38.25px; line-height: 45px; font-weight: 400">
+            <span id="ph-s1-c1" class="ph-ch">자</span><span id="ph-s1-c2" class="ph-ch">료</span><span id="ph-s1-c3" class="ph-ch">검</span><span id="ph-s1-c4" class="ph-ch">색</span><span id="ph-s1-cursor" class="ph-cursor" style="height: 45px"></span>
+          </div>
+          <!-- 돋보기 (639:4022): 원래 자리를 흰 원으로 덮고 같은 그림을 올려서 누르는 효과 -->
+          <div class="ph-abs" style="left: 777.2px; top: 0.9px; width: 118.3px; height: 118.3px; border-radius: 50%; background: #ffffff"></div>
+          <img id="ph-mag" class="ph-abs" src="assets/img/s1-magnifier.png" alt="" style="left: 777.2px; top: 0.9px; width: 118.5px" />
+        </div>
+      </div>
+
+      <!-- ===== S2 `검색` (스크롤 185) ===== -->
+      <div id="ph-s2" class="ph-layer" style="opacity: 0">
+        <img class="ph-screen" src="assets/img/s2-search.png" alt="" />
+        <!-- '검색' 버튼 (639:4173) -->
+        <div class="ph-abs" style="left: 387px; top: 459px; width: 193.5px; height: 99px; background: #efefef"></div>
+        <img id="ph-sbtn" class="ph-abs" src="assets/img/s2-searchbtn.png" alt="" style="left: 387px; top: 459px; width: 193.5px" />
+        <!-- 물결 원: 가운데 (484, 508.5) = 영상 (540, 668.5) -->
+        <div id="ph-ripple" class="ph-abs" style="left: 224px; top: 248.5px; width: 520px; height: 520px; border-radius: 50%; background: #186ccf; opacity: 0"></div>
+      </div>
+
+      <!-- ===== `검색결과` (639:4175): 검색창 아래만 바뀜 ===== -->
+      <div id="ph-res" class="ph-layer" style="opacity: 0; clip-path: inset(200px 0 0 0)">
+        <img class="ph-screen" src="assets/img/s2-result.png" alt="" />
+        <!-- 결과 카드 자리를 흰색으로 덮고 카드를 차례로 올림 -->
+        <div class="ph-patch" style="left: 36px; top: 882px; width: 876px; height: 2296px"></div>
+        <img id="ph-card1" class="ph-abs" src="assets/img/s2-card1.png" alt="" style="left: 36px; top: 882px; width: 875.25px" />
+        <img id="ph-card2" class="ph-abs" src="assets/img/s2-card2.png" alt="" style="left: 36px; top: 1476px; width: 875.25px" />
+        <img id="ph-card3" class="ph-abs" src="assets/img/s2-card3.png" alt="" style="left: 36px; top: 2070px; width: 875.25px" />
+        <img id="ph-card4" class="ph-abs" src="assets/img/s2-card4.png" alt="" style="left: 36px; top: 2664px; width: 875.25px" />
+        <!-- 카드 1 '대출가능' 배지 -->
+        <img id="ph-badge" class="ph-abs" src="assets/img/s2-badge.png" alt="" style="left: 141.75px; top: 882px; width: 141.75px; opacity: 0" />
+        <!-- 카드 1 '도서예약신청' 버튼 (639:4235) -->
+        <div id="ph-rbtn-bg" class="ph-patch" style="left: 317.25px; top: 1296px; width: 281.25px; height: 99px; opacity: 0"></div>
+        <img id="ph-rbtn" class="ph-abs" src="assets/img/s3-reservebtn.png" alt="" style="left: 317.25px; top: 1296px; width: 281.25px; opacity: 0" />
+      </div>
+
+      <!-- 검색어 "폭풍의 언덕" (S2 ~ S3 동안 같은 자리) -->
+      <div id="ph-s2-type" class="ph-layer" style="opacity: 0">
+        <div id="ph-s2-hint-off" class="ph-patch" style="left: 104px; top: 28px; width: 680px; height: 70px; opacity: 0"></div>
+        <div class="ph-type" style="left: 110.25px; top: 33.75px; font-size: 38.25px; line-height: 58.5px; font-weight: 700">
+          <span id="ph-s2-c1" class="ph-ch">폭</span><span id="ph-s2-c2" class="ph-ch">풍</span><span id="ph-s2-c3" class="ph-ch">의</span><span id="ph-s2-c4" class="ph-ch">&nbsp;</span><span id="ph-s2-c5" class="ph-ch">언</span><span id="ph-s2-c6" class="ph-ch">덕</span><span id="ph-s2-cursor" class="ph-cursor" style="height: 50px; margin-top: 4px"></span>
+        </div>
+      </div>
+
+      <!-- ===== S3 확인 팝업 `도서예약01` (649:594) ===== -->
+      <div id="ph-dim" class="ph-layer" style="background: rgba(97, 97, 97, 0.5); opacity: 0"></div>
+      <div id="ph-popup" class="ph-abs" style="left: 56.25px; top: 220.5px; width: 855px; height: 699.75px; opacity: 0">
+        <img class="ph-abs" src="assets/img/s3-popup.png" alt="" style="left: 0; top: 0; width: 855px" />
+        <div class="ph-patch" style="left: 679.5px; top: 560.25px; width: 139.5px; height: 99px"></div>
+        <img id="ph-confirm" class="ph-abs" src="assets/img/s3-confirm.png" alt="" style="left: 679.5px; top: 560.25px; width: 139.5px" />
+      </div>
+
+      <!-- ===== S4 완료 `도서예약02` (639:4522, 스크롤 0) ===== -->
+      <div id="ph-s4" class="ph-layer" style="opacity: 0">
+        <img class="ph-screen" src="assets/img/s4-done.png" alt="" />
+        <!-- 형광펜 밑줄: 영상 x 124 ~ 817, y 510 ~ 547 → 휴대폰 안 (68, 350) -->
+        <div id="ph-hl" class="ph-abs" style="left: 68px; top: 350px; width: 693px; height: 37px; background: rgba(24, 108, 207, 0.25); mix-blend-mode: multiply; transform-origin: 0% 50%"></div>
+        <!-- '예약 완료' 알약 배지: 영상 x 732 ~ 928, y 376 ~ 447 -->
+        <div id="ph-done-badge" class="ph-abs" style="left: 676px; top: 216px; width: 196px; height: 71px; border-radius: 35.5px; background: #186ccf; color: #ffffff; font-size: 34px; font-weight: 700; line-height: 71px; text-align: center; opacity: 0">예약 완료</div>
+      </div>
+
+      <!-- 퍼지는 원: 시작점 영상 (514, 1506) = 휴대폰 안 (458, 1346), 반지름 1440 -->
+      <!-- 색: 가운데 #B5C3FF → 바깥 #B6F3C9 그라데이션 (사용자 요청으로 #296D18에서 변경) -->
+      <div id="ph-burst" class="ph-abs" style="left: -982px; top: -94px; width: 2880px; height: 2880px; border-radius: 50%; background: radial-gradient(circle closest-side, #b5c3ff 0%, #b6f3c9 100%); opacity: 0"></div>
+    </div>
+  </div>
+
+  <script>
+    // motion.md 2-1 이징을 cubic-bezier 그대로 계산
+    function phBez(x1, y1, x2, y2) {
+      const cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
+      const cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
+      const sx = (u) => ((ax * u + bx) * u + cx) * u;
+      const sy = (u) => ((ay * u + by) * u + cy) * u;
+      const dx = (u) => (3 * ax * u + 2 * bx) * u + cx;
+      return (t) => {
+        if (t <= 0) return 0;
+        if (t >= 1) return 1;
+        let u = t;
+        for (let i = 0; i < 8; i++) {
+          const e = sx(u) - t, d = dx(u);
+          if (Math.abs(e) < 1e-6 || Math.abs(d) < 1e-6) break;
+          u -= e / d;
+        }
+        let lo = 0, hi = 1;
+        if (Math.abs(sx(u) - t) > 1e-5) {
+          u = t;
+          for (let i = 0; i < 30; i++) {
+            if (sx(u) < t) lo = u; else hi = u;
+            u = (lo + hi) / 2;
+          }
+        }
+        return sy(u);
+      };
+    }
+    const OUT = phBez(0, 0, 0.2, 1);
+    const IN = phBez(0.4, 0, 1, 1);
+    const IO = phBez(0.4, 0, 0.2, 1);
+    const BACK = phBez(0.34, 1.56, 0.64, 1);
+
+    const tl = gsap.timeline({ paused: true });
+
+    // 누르는 효과: 앞 절반 1 → 0.95, 뒤 절반 0.95 → 1 (ease-in-out)
+    function press(sel, t, d) {
+      tl.fromTo(sel, { scale: 1 }, { scale: 0.95, duration: d / 2, ease: IO, immediateRender: false }, t);
+      tl.to(sel, { scale: 1, duration: d / 2, ease: IO }, t + d / 2);
+    }
+    function show(sel, t) { tl.set(sel, { display: "inline" }, t); }
+
+    // 처음 상태
+    tl.set(["#ph-icon1", "#ph-icon2", "#ph-icon3", "#ph-icon4", "#ph-icon5", "#ph-icon6", "#ph-icon7", "#ph-icon8"], { opacity: 0, y: 24 }, 0);
+
+    // ----- S1 (0 ~ 6) -----
+    // S1 등장: 오른쪽 화면 밖에서 들어온 뒤(0 ~ 0.5) 통통 두 번 튐(0.5 ~ 0.92)
+    tl.fromTo("#ph-frame", { x: 1080, y: 0, opacity: 1 }, { x: 0, duration: 0.5, ease: OUT }, 0);
+    tl.to("#ph-frame", { y: -48, duration: 0.12, ease: OUT }, 0.5);
+    tl.to("#ph-frame", { y: 0, duration: 0.12, ease: IN }, 0.62);
+    tl.to("#ph-frame", { y: -20, duration: 0.09, ease: OUT }, 0.74);
+    tl.to("#ph-frame", { y: 0, duration: 0.09, ease: IN }, 0.83);
+    for (let i = 1; i <= 8; i++) {
+      tl.fromTo("#ph-icon" + i, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.1, ease: OUT, immediateRender: false }, 0.6 + (i - 1) * 0.1);
+    }
+    tl.fromTo("#ph-sbox", { scale: 1 }, { scale: 1.08, duration: 0.4, ease: IO }, 1.6);
+    tl.to("#ph-sbox", { scale: 1, duration: 0.4, ease: IO }, 2.0);
+    tl.set("#ph-s1-hint-off", { opacity: 1 }, 3.6);
+    show("#ph-s1-c1", 3.7); show("#ph-s1-c2", 3.9); show("#ph-s1-c3", 4.1); show("#ph-s1-c4", 4.3);
+    // 커서: 입력하는 동안은 계속 켜 두고, 끝난 뒤 0.5초마다 켜짐/꺼짐
+    tl.set("#ph-s1-cursor", { opacity: 1 }, 3.6);
+    tl.set("#ph-s1-cursor", { opacity: 0 }, 4.8);
+    tl.set("#ph-s1-cursor", { opacity: 1 }, 5.3);
+    tl.set("#ph-s1-cursor", { opacity: 0 }, 5.6);
+    tl.fromTo("#ph-mag", { scale: 1 }, { scale: 0.95, duration: 0.1, ease: IO, immediateRender: false }, 5.6);
+    tl.to("#ph-mag", { scale: 1.25, duration: 0.1, ease: OUT }, 5.7);
+
+    // ----- S1 → S2 (6.0 ~ 6.3): `검색` 화면이 검색창을 기준으로 한 번에 커지며 등장 -----
+    // 기준점 = `검색` 화면 입력창 가운데 (Figma x 215, y 213 → 휴대폰 안 484, 63)
+    tl.fromTo("#ph-s1", { opacity: 1 }, { opacity: 0, duration: 0.3, ease: IO, immediateRender: false }, 6.0);
+    tl.fromTo(
+      ["#ph-s2", "#ph-s2-type"],
+      { opacity: 0, scale: 0, transformOrigin: "484px 63px" },
+      { opacity: 1, scale: 1, transformOrigin: "484px 63px", duration: 0.3, ease: OUT, immediateRender: false },
+      6.0,
+    );
+
+    // ----- S2 (6 ~ 14) -----
+    tl.set("#ph-s2-hint-off", { opacity: 1 }, 6.4);
+    tl.set("#ph-s2-cursor", { opacity: 1 }, 6.4);
+    [6.5, 6.7, 6.9, 7.1, 7.3, 7.5].forEach((t, i) => show("#ph-s2-c" + (i + 1), t));
+    tl.set("#ph-s2-cursor", { opacity: 0 }, 8.0);
+    press("#ph-sbtn", 8.0, 0.2);
+    tl.fromTo("#ph-ripple", { scale: 0, opacity: 0.4 }, { scale: 1, opacity: 0, duration: 0.5, ease: OUT, immediateRender: false }, 8.0);
+    tl.fromTo("#ph-res", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: IO, immediateRender: false }, 8.5);
+    tl.set(["#ph-badge", "#ph-rbtn-bg", "#ph-rbtn"], { opacity: 1 }, 8.5);
+    tl.set(["#ph-card1", "#ph-card2", "#ph-card3", "#ph-card4"], { opacity: 0, y: 24 }, 0);
+    [8.8, 8.95, 9.1, 9.25].forEach((t, i) => {
+      tl.fromTo("#ph-card" + (i + 1), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.35, ease: OUT, immediateRender: false }, t);
+    });
+    // 배지·예약 버튼은 카드 1과 함께 나타남
+    tl.fromTo(["#ph-badge", "#ph-rbtn-bg", "#ph-rbtn"], { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.35, ease: OUT, immediateRender: false }, 8.8);
+    tl.fromTo("#ph-badge", { scale: 1 }, { scale: 1.1, duration: 0.2, ease: IO, immediateRender: false }, 10.4);
+    tl.to("#ph-badge", { scale: 1, duration: 0.2, ease: IO }, 10.6);
+
+    // ----- S3 (14 ~ 18.1) -----
+    press("#ph-rbtn", 14.5, 0.3);
+    tl.fromTo("#ph-dim", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: OUT, immediateRender: false }, 14.8);
+    tl.fromTo("#ph-popup", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.4, ease: OUT, immediateRender: false }, 15.0);
+    press("#ph-confirm", 17.8, 0.3);
+
+    // ----- S3 → S4 (18.1 ~ 18.8): 그라데이션 원 퍼짐 -----
+    tl.to(["#ph-popup", "#ph-dim"], { opacity: 0, duration: 0.1, ease: IN }, 18.1);
+    tl.fromTo("#ph-burst", { scale: 0, opacity: 1 }, { scale: 1, opacity: 1, duration: 0.4, ease: IO, immediateRender: false }, 18.1);
+    tl.set(["#ph-s2", "#ph-res", "#ph-s2-type"], { opacity: 0 }, 18.5);
+    tl.set("#ph-s4", { opacity: 1 }, 18.5);
+    tl.to("#ph-burst", { opacity: 0, duration: 0.3, ease: IO }, 18.5);
+
+    // ----- S4 (18.1 ~ 24) -----
+    tl.fromTo("#ph-hl", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: OUT }, 19.0);
+    tl.fromTo("#ph-done-badge", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: BACK, immediateRender: false }, 19.6);
+    // 23.4부터 덮개(cover)가 밑줄 자리에서 이어받음
+    tl.set("#ph-hl", { opacity: 0 }, 23.4);
+    tl.set({}, {}, 24);
+
+    window.__timelines["phone"] = tl;
+  </script>
+</template>
