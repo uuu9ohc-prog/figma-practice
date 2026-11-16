@@ -5,9 +5,9 @@
 
 ## 1. 링크
 
-- **Live Demo**: https://사용자이름.github.io/저장소이름/
-- **GitHub**: https://github.com/사용자이름/저장소이름
-- **Figma 디자인**: https://www.figma.com/...
+- **Live Demo**: https://uuu9ohc.github.io/figma-practice/
+- **GitHub**: https://github.com/uuu9ohc/figma-practice
+- **Figma 디자인**: https://www.figma.com/design/dFKMRTOTPvizEEn4UEcjoS/%EA%B2%BD%EC%A3%BC%EC%8B%9C%EB%A6%BD%EB%8F%84%EC%84%9C%EA%B4%80-%EA%B0%9C%EC%84%A0?node-id=137-1739
 
 ## 2. 프로젝트 정보
 
